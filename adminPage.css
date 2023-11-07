@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: roboto;
+}
+.admin_container {
+  max-width: 80%;
+  padding-top: 2rem;
+  margin: 0 auto;
+  display: flex;
+  max-height: 100vh;
+}
+.admin_left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #eeeeee;
+}
+.left_title {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 0.7rem 0.9rem;
+  color: white;
+  background-color: rgb(13, 168, 230);
+  border-radius: 5px 0 0 0;
+}
+.left_title > i {
+  font-size: 45px;
+  color: yellow;
+}
+
+.admin_optional .other {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin: 0.4rem 0;
+  padding: 1.1rem 1.4rem 1.1rem 1.4rem;
+  transition: all 0.5s ease-in-out;
+}
+.admin_optional .other > i {
+  font-size: 1.5rem;
+}
+.admin_optional .other > p {
+  font-size: 1.1rem;
+}
+.admin_optional .other:hover {
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+}
+.admin_optional .other:hover > p {
+  color: #e52d2d;
+}
+.admin_right {
+  flex: 8;
+  overflow: auto;
+}
+.admin_right-top {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0.9rem;
+  background-color: rgb(13, 168, 230);
+  border-radius: 0 5px 0 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  position: sticky;
+  top: 0;
+}
+.admin_logo {
+  flex: 1;
+}
+.admin_right_title {
+  flex: 1;
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
+}
+.admin_infor {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1.2rem;
+}
+.admin_infor > a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  display: block;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #e52d2d;
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+}
+.admin_infor > a:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.admin_avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_avatar>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.admin_right-bottom{
+    padding: 1rem 1.5rem;
+}
