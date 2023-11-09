@@ -5,7 +5,6 @@ let chinhSachDoiTra = document.querySelector('.body_product .chinhSachDoiTra');
 let binhLuan = document.querySelector('.body_product .binhLuan');
 body_product_nav.forEach((item,index)=>{
     item.addEventListener('click',()=>{
-       
         if(index == 0){
             thongTinSanPham.classList.add('show_2')
           

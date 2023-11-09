@@ -325,7 +325,7 @@ body{
 /*  */
 .show_product_right .show_product_right_color{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     margin-bottom: 4rem;
 }
@@ -762,4 +762,8 @@ body{
 .footer .footer_bottom>p{
     font-size: 22px;
     color: var(--text_color);
+}
+
+.lastChoice{
+    color: red;
 }

@@ -16,9 +16,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="./adminPage.css" />
+    <link rel="stylesheet" href="../Css/adminPage.css" />
   </head>
-  
+
+
   <body>
     <div class="admin_container">
       <div class="admin_left">
@@ -29,27 +30,27 @@
         <div class="admin_optional">
           <div class="add_type other">
             <i class="fa-solid fa-circle-plus"></i>
-            <p>Thêm danh mục</p>
+            <a href="index.php?act=themDanhMuc">Danh mục</a>
           </div>
           <div class="add_product other">
             <i class="fa-solid fa-plus"></i>
-            <p>Thêm sản phẩm</p>
+            <a href="index.php?act=themSanPham">Sản phẩm</a>
           </div>
           <div class="add_quality other" >
             <i class="fa-solid fa-diamond"></i>
-            <p>Thêm số lượng</p>
+            <a href="index.php?act=themSoLuong">Thêm số lượng</a>
           </div>
           <div class="manage_order other">
             <i class="fa-solid fa-suitcase"></i>
-            <p>Quản lí đơn hàng</p>
+            <a href="index.php?act=quanLiDonHang">Quản lí đơn hàng</a>
           </div>
           <div class="manage_comments other">
             <i class="fa-regular fa-comment"></i>
-            <p>Quản lí bình luận</p>
+            <a href="index.php?act=quanLiBinhLuan">Quản lí bình luận</a>
           </div>
           <div class="manage_users other">
             <i class="fa-regular fa-user"></i>
-            <p>Quản lí người dùng</p>
+            <a href="index.php?act=quanLiNguoiDung">Quản lí người dùng</a>
           </div>
         </div>
       </div>
@@ -71,13 +72,3 @@
           </div>
 
         </div>
-        <div class="admin_right-bottom">
-          <p>Lê huy thanh</p>
-
-          <img src="https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg" alt="">
-        </div>
-      </div>
-    </div>
-  </body>
-
-</html>
