@@ -60,6 +60,7 @@
     <script src="../Trang2/detail_prd.js"></script>
     <script src="../Trang2/body_product.js"></script>
     <script src="../navigation/navigate.js"></script>
+    <script src="../Trang2/cart.js"></script>
     
 </body>
 

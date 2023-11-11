@@ -64,7 +64,7 @@
                     <span class="prd_number">1</span>
                     <button class="increase">+</button>
                 </div>
-                <p class="show_product_right_buy_cart">Thêm Vào Giỏ</p>
+                <p class="show_product_right_buy_cart" >Thêm Vào Giỏ</p>
                 <p class="show_product_right_buy_buyNow">Mua Ngay</p>
             </div>
             <div class="show_product_right_market">

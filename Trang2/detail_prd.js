@@ -76,7 +76,6 @@ for (let i = 0; i < getSizeElements.length; i++) {
         newColor.addEventListener('dblclick' , ()=>{
           location.reload()
         })
-        console.log(JSON.parse(sessionStorage.getItem("productDetail")))
       })
 
       
@@ -140,7 +139,6 @@ for (let i = 0; i < getColorElements.length; i++) {
         newSize.addEventListener('dblclick' , ()=>{
           location.reload()
         })
-        console.log(JSON.parse(sessionStorage.getItem("productDetail")))
       })
 
       

@@ -24,19 +24,10 @@ if(isset($_GET['act'])){
                 include('./body.php');
             }
         break;
-
-        // case 'getQuatityByColor':
-        //     if(isset($_GET['color']) && isset($_GET['id'])){
-        //         $getProductById = getProductById($_GET['id']);
-        //         $getDetailProduct = getDetailProduct($_GET['id']);
-        //         $getDetailProductbyColor = getDetailProductbyColor($_GET['id']);
-        //         $getDetailProductbySize = getDetailProductbySize($_GET['id']);
-
-        //         $getQuitityOfColor = getQuitityOfColor($_GET['id'], $_GET['color']);
-        //         var_dump($getQuitityOfColor);
-        //         include('./body.php');
-        //     }
-        // break;
+        // điều hướng đến giỏ hàng
+        case 'goToCart':
+          include('./Cart.php');
+        break;
         
         default:
         include('./body.php');

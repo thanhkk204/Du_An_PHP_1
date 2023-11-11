@@ -14,9 +14,10 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto:ital,wght@1,100;1,300&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <link rel="stylesheet" href="../Css/sanPham.css">
-
+<link rel="stylesheet" href="../Css/cartPage.css">
 <body class="">
     <div class="header">
         <div class="logo">
