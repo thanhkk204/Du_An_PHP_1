@@ -75,7 +75,7 @@
           <li>Hệ Thống Cửa Hàng</li>
         </ul>
       </div>
-      <div class="bag">
+      <div class="bag" onclick="getCart()">
         Giỏ Hàng
         <i class="fa-solid fa-cart-shopping"></i>
       </div>

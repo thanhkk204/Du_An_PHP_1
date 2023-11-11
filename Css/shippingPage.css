@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: roboto;
+}
+.container {
+  max-width: 1440px;
+  margin: 30px auto;
+}
+.header_title {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgb(148, 147, 147);
+}
+.inforOfOrder {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.productor_table{
+  border: 1px solid grey;
+  border-collapse: collapse;
+  width: 70%;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.productor_table>thead>tr>th{
+  text-align: start;
+  padding: 0.5rem 0.9rem ;
+  color: black;
+  font-size: 20px;
+  
+}
+.productor_table>tbody>tr>td{
+  text-align: start;
+  padding: 0.5rem 0.9rem ;
+  color: black;
+  font-size: 17px;
+
+}
+
+.productor_table td:nth-child(5){
+  width: 10%;
+}
+.productor_table td:nth-child(1)>img{
+  width: 100px;
+}
+.productor_table th:nth-child(5){
+  width: 10%;
+}
+
+.body {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+.stateOrder {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid rgb(148, 147, 147);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 130px;
+}
+.stateOrder_inside {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.noticeOrder {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid rgb(148, 147, 147);
+  border-radius: 5px;
+  height: 130px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 50px;
+  border: 1px solid rgb(148, 147, 147);
+  border-radius: 5px;
+  padding: 10px;
+  width: 50%;
+}
+.periodOrder {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.periodOrder_title {
+  display: flex;
+  gap: 10px;
+}
+.periodOrder_title>span {
+  display: flex;
+  gap: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgb(148, 147, 147);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.curentPeriod{
+    color: rgb(233, 121, 16);
+  }
+.curentPeriodSpan{
+    background-color: rgb(233, 121, 16) !important;
+  }
+.periodOrder_time {
+    display: flex;
+    gap: 10px;
+}

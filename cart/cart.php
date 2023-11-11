@@ -45,6 +45,9 @@
             <div class="cart_items">
             <?php 
                     $carts = $_COOKIE['carts'];
+                    if(isset($carts)){
+
+                   
                     $newCarts = json_decode($carts);
                     
                     foreach ($newCarts as $key => $value2) {
@@ -85,6 +88,10 @@
                    </div>
                        ';
                     }
+
+                }else{
+                    echo 'Bạn cần chọn sản phẩm' ;
+                }
             ?>
                <div class="product_size">
 

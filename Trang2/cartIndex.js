@@ -65,7 +65,8 @@ checkOut.addEventListener('click' , ()=>{
   })
   localStorage.setItem('cart' , JSON.stringify(cart))
 
-  document.cookie = `carts=${JSON.stringify(cart)}; expires=${new Date("2024-01-01 00:00:00").toUTCString()}`
+ 
+  window.location.href = "../bill/setCookie.php"
 })
 
 // Nút xóa sản phầm 

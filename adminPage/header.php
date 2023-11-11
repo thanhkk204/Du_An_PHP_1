@@ -65,7 +65,7 @@
             <p>Quản lí ứng dụng</p>
           </div>
           <div class="admin_infor">
-            <a href="#">Về trang chủ</a>
+            <a href="../indexPage/index.php">Về trang chủ</a>
             <div class="admin_avatar">
               <img src="https://www.kkday.com/vi/blog/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg" alt="">
             </div>

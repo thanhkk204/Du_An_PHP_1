@@ -4,4 +4,6 @@ function navigateToDetail(id){
    
 }
 
-
+function getCart(){
+    window.location.href = "../cart/cart.php";
+}
