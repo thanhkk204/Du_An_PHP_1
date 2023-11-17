@@ -27,6 +27,7 @@
                         $totalMoney = intval($value['quatity'])  * intval($value['price'] ) ;
     
                         themChiTietHoaDon($id_don_hang , $value['id_sanPham'] , $value['quatity']  , $value['color'] , $value['size'] , $totalMoney );
+                        capNhatSoLuongSanPham($value['id'] , $value['quatity']);
                     }
                 }
                 include('./thanksPage.php');

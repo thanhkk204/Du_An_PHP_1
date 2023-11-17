@@ -107,6 +107,31 @@ if(isset($_GET['act'])){
                 $listQuatity = listQuatity();
                 include('./sanPham/listQuatity.php');
                 break;
+             // Xóa chi tiết sản phẩm      
+             case 'xoaChiTietSanPham':
+                $id =  $_GET['id'];
+                echo $id;
+                xoaChiTietSanPham($id);
+                $listQuatity = listQuatity();
+                include('./sanPham/listQuatity.php');
+                break;
+
+             // Quản lí đơn hàng    
+             case 'hienThiDonHang':
+                $danhSachDonHang = layDanhSachDonHang();
+                include('./quanLiDonHang/list.php');
+                break;
+             case 'donHangDangGiao':
+                $danhSachDonHang = layDanhSachDonHangDangGiao();
+                include('./donHangDaGiao/list.php');
+                break;
+             case 'xacNhanDonHang':
+                    $id = $_GET['id'];
+                    xacNhanDonHang($id);
+                    $danhSachDonHang = layDanhSachDonHang();
+                    include('./quanLiDonHang/list.php');
+
+                break;
         // Mặc định
         default:
         include('./body.php');

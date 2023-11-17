@@ -5,7 +5,7 @@
 };
 
 function getDetailProduct($id){
-    $sql = "select id_sanPham , san_pham.price as price , san_pham.brand as brand , san_pham.name as name , san_pham.image0 as img , size , color , SUM(quatity) as total from san_pham INNER JOIN chi_tiet_san_pham ON chi_tiet_san_pham.id_sanPham = san_pham.id WHERE chi_tiet_san_pham.id_sanPham = '$id' GROUP BY chi_tiet_san_pham.id_sanPham , chi_tiet_san_pham.size , chi_tiet_san_pham.color";
+    $sql = "select chi_tiet_san_pham.id as id , id_sanPham , san_pham.price as price , san_pham.brand as brand , san_pham.name as name , san_pham.image0 as img , size , color , SUM(quatity) as total from san_pham INNER JOIN chi_tiet_san_pham ON chi_tiet_san_pham.id_sanPham = san_pham.id WHERE chi_tiet_san_pham.id_sanPham = '$id' GROUP BY chi_tiet_san_pham.id_sanPham , chi_tiet_san_pham.size , chi_tiet_san_pham.color";
     return pdo_query($sql);
 };
 function getDetailProductbyColor($id){

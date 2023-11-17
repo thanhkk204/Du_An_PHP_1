@@ -21,7 +21,7 @@
 
 
             <div >
-                <span>Màu sắc :</span>
+                <span style="margin-bottom: 0.3rem; display: block;">Màu sắc :</span>
                 <div class="show_product_right_color">
                 <?php
                         foreach ($getDetailProductbyColor as $key => $value) { 
@@ -33,7 +33,7 @@
             </div  >
 
             <div>
-                <p>Kích thước</p>
+                <p>Kích thước :</p>
                <div class="show_product_right_size">
                     <?php 
                         foreach ($getDetailProductbySize as $key => $value) {
@@ -55,18 +55,41 @@
                              foreach ($getDetailProduct as $key => $value) {
                                $total += $value['total'];
                              }
-                             echo '<h1>Số hàng còn trong kho: <span id="quatityOfProduct">'.$total.'</span></h1>'
+                             echo '<h3 style="margin-bottom: 0.7rem;">Số hàng còn trong kho: <span id="quatityOfProduct">'.$total.'</span></h3>'
                         ?>
             </div>
+
             <div class="show_product_right_buy">
                 <div class="show_product_right_buy_btn">
                     <button class="decline">-</button>
                     <span class="prd_number">1</span>
                     <button class="increase">+</button>
                 </div>
-                <p class="show_product_right_buy_cart" >Thêm Vào Giỏ</p>
-                <p class="show_product_right_buy_buyNow">Mua Ngay</p>
+                <?php 
+                   if (isset($_SESSION['user'])) {
+       
+                    echo '
+                    <p class="show_product_right_buy_cart " >Thêm Vào Giỏ</p>
+                    <p class="show_product_right_buy_buyNow">Mua Ngay</p>
+                    ';
+                }else{
+                    echo '
+                    <p class="show_product_right_buy_cart show_3" >Thêm Vào Giỏ</p>
+                    <p class="show_product_right_buy_buyNow show_3">Mua Ngay</p>
+                    
+                    ';
+                }
+                ?>
+               
             </div>
+            <?php 
+                   if (!isset($_SESSION['user'])) {
+                    echo '
+                    <p style="margin-top: 2rem; color:red;">Bạn Cần Đăng Nhập Để Mua Hàng</p>
+                    ';
+                }
+                ?>
+                
             <div class="show_product_right_market">
                 <p style="color: #80d301; font-size: 1.5rem;">Gọi Để Mua Hàng Nhanh Hơn</p>
                 <p> <span style="font-size: 2.5rem; font-weight: bold;">0931.999.499 </span> (8h30 : 18h30)</p>
@@ -83,7 +106,7 @@
     </div>
     <!-- end show Product -->
     <div class="zoomToImage">
-        <img src="./img/detail_img.webp" alt="">
+    <img <?php echo 'src="../upload/'.$getProductById['image0'].'"' ?> alt="">
         <i class="fa-solid fa-backward"></i>
         <i class="fa-solid fa-forward"></i>
         <i  class="fa-solid fa-xmark"></i>
@@ -99,14 +122,14 @@
             <p>Chính Sách Đổi Trả</p>
             <p>Bình Luận</p>
         </div>
-        <div class="thongTinSanPham">
+        <div class="thongTinSanPham ">
             <p style="font-size: 1.4rem; padding-bottom: 30px;border-bottom: 3px dashed black;"> <span style="margin-bottom: 10px; display: inline-block;"> Giày Cổ Cao ZOE Màu Đen (Zebra High Zoe)</span> <br> 
                 Giày do thương hiệu Zoe gia công & sản xuất <br>
                 Xuất xứ: VIETNAM</p>
             
                 <p style="margin-top: 15px; font-size: 1.2rem;">Giày cao cổ của ZOE là một sản phẩm giày thời trang sang trọng và hiện đại. Giày cổ cao của ZOE có nhiều mẫu mã và màu sắc khác nhau để người dùng dễ dàng lựa chọn theo sở thích và phong cách của mình. Giày dáng cổ cao có thể được kết hợp với nhiều trang phục khác nhau, từ váy ngắn, quần jean đến quần âu, mang lại cho người mang một vẻ ngoài thời trang, cá tính và sang trọng.</p>
 
-                <img src="./img/detail_img2.webp" alt="">
+                <img <?php echo 'src="../upload/'.$getProductById['image1'].'"' ?> alt="">
                 <div style="width: 100%;text-align: center;margin-top: 20px;font-size: 1.3rem;"><p>Giày Cao Cổ Zoe Màu Đen phối đồ cực chất</p></div>
                 <div style="font-size: 1.3rem; margin-top: 20px;"><b style="margin: 10px 0; display: inline-block;"> Mô tả sản phẩm: </b> <br>
                     Zoe Zebra High Black HT002 / Giày cao cổ Đen ZOE <br>
@@ -132,54 +155,124 @@
                 </div>
                 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/wPCaW11LFIw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style=" margin: 30px 0 80px 0; width: 100%;height: 900px;"></iframe> -->
         </div>
-        <div class="huongDanMuaHang">Hướng Dẫn Mua Hàng</div>
-        <div class="chinhSachDoiTra">Chính Sách Đổi Trả</div>
-        <div class="binhLuan">Bình Luận</div>
+        <div class="huongDanMuaHang none_show">Hướng Dẫn Mua Hàng</div>
+        <div class="chinhSachDoiTra none_show">Chính Sách Đổi Trả</div>
+        <div class="binhLuan none_show">
+            
+        <div class="comments">
+
+        <div class="onePerson">
+            <div class="img_form">
+
+                <img src="../img/gaiy 8.jpg" alt="">
+            </div>
+            <div class="onePerson_infor">
+                <p class="onePerson_name">Lê Huy Thanh</p>
+                <p class="onePerson_timeComment">14:20:2003</p>
+                <p class="onePerson_Comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
+                     reiciendis vitae aliquam harum alias itaque amet in mag
+                     ni soluta rem autem, error praesentium dolores facere vel fu
+                     git corporis totam et?
+                </p>
+            </div>
+        </div>
+        <div class="onePerson onePerson_2">
+            <div class="img_form">
+
+                <img src="../img/gaiy 8.jpg" alt="">
+            </div>
+            <div class="onePerson_infor">
+                <p class="onePerson_name">Lê Huy Thanh</p>
+                <p class="onePerson_timeComment">14:20:2003</p>
+                <p class="onePerson_Comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
+                     reiciendis vitae aliquam harum alias itaque amet in mag
+                     ni soluta rem autem, error praesentium dolores facere vel fu
+                     git corporis totam et?
+                </p>
+            </div>
+        </div>
+        <div class="onePerson">
+            <div class="img_form">
+
+                <img src="../img/gaiy 8.jpg" alt="">
+            </div>
+            <div class="onePerson_infor">
+                <p class="onePerson_name">Lê Huy Thanh</p>
+                <p class="onePerson_timeComment">14:20:2003</p>
+                <p class="onePerson_Comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
+                     reiciendis vitae aliquam harum alias itaque amet in mag
+                     ni soluta rem autem, error praesentium dolores facere vel fu
+                     git corporis totam et?
+                </p>
+            </div>
+        </div>
+        
+        </div>
+
+<?php 
+
+    if (isset($_SESSION['user'])) {
+       
+        echo '
+        <div class="comment-form">
+        <input type="text" class="comment-input" placeholder="Nhập bình luận của bạn...">
+       <button class="comment-submit">Gửi</button>
+       </div>
+        ';
+    }else{
+        echo '<h1 style="margin-top: 2rem;display: flex; justify-content: center; align-items: center;"> Bạn cần đăng nhập để bình luận </h1>';
+    }
+?>
+        </div>
     </div>
     <!-- Product 2 -->
-    <div class="title_product">
-        <p>Sản Phẩm Liên Quan</p>
-    </div>
 
-    <div class="list_product_1">
-        <div class="product_large">
-            <div class="product">
-                <i class="fa-solid fa-heart"></i>
-                <img src="./img/gaiy 6.jpg" alt="">
-                <div class="watch_shoe">Xem Ngay</div>
-            </div>
-            <div class="product_name">ZOE Authetic White</div>
-            <div class="product_cost">850.000đ</div>
+    <div style="margin-top: 4rem;">
+
+        <div class="title_product">
+            <p>Sản Phẩm Liên Quan</p>
         </div>
-        <div class="product_large">
-            <div class="product">
-                <i class="fa-solid fa-heart"></i>
-                <img src="./img/gaiy 8.jpg" alt="">
-                <div class="watch_shoe">Xem Ngay</div>
+    
+        <div class="list_product_1">
+            <div class="product_large">
+                <div class="product">
+                    <i class="fa-solid fa-heart"></i>
+                    <img <?php echo 'src="../upload/'.$getProductById['image0'].'"' ?> alt="">
+                    <div class="watch_shoe">Xem Ngay</div>
+                </div>
+                <div class="product_name">ZOE Authetic White</div>
+                <div class="product_cost">850.000đ</div>
             </div>
-            <div class="product_name">Zebra High Black</div>
-            <div class="product_cost">700.000đ</div>
-        </div>
-        <div class="product_large">
-            <div class="product">
-                <i class="fa-solid fa-heart"></i>
-                <img src="./img/giay 7.jpg" alt="">
-                <div class="watch_shoe">Xem Ngay</div>
+            <div class="product_large">
+                <div class="product">
+                    <i class="fa-solid fa-heart"></i>
+                    <img <?php echo 'src="../upload/'.$getProductById['image0'].'"' ?> alt="">
+                    <div class="watch_shoe">Xem Ngay</div>
+                </div>
+                <div class="product_name">Zebra High Black</div>
+                <div class="product_cost">700.000đ</div>
             </div>
-            <div class="product_name">ZOE Authetic N'Loop</div>
-            <div class="product_cost">650.000đ</div>
-        </div>
-        <div class="product_large">
-            <div class="product">
-                <i class="fa-solid fa-heart"></i>
-                <img src="./img/giay1.jpg" alt="">
-                <div class="watch_shoe">Xem Ngay</div>
+            <div class="product_large">
+                <div class="product">
+                    <i class="fa-solid fa-heart"></i>
+                    <img <?php echo 'src="../upload/'.$getProductById['image0'].'"' ?> alt="">
+                    <div class="watch_shoe">Xem Ngay</div>
+                </div>
+                <div class="product_name">ZOE Authetic N'Loop</div>
+                <div class="product_cost">650.000đ</div>
             </div>
-            <div class="product_name">ZOE Black Mule</div>
-            <div class="product_cost">420.000đ</div>
+            <div class="product_large">
+                <div class="product">
+                    <i class="fa-solid fa-heart"></i>
+                    <img <?php echo 'src="../upload/'.$getProductById['image0'].'"' ?> alt="">
+                    <div class="watch_shoe">Xem Ngay</div>
+                </div>
+                <div class="product_name">ZOE Black Mule</div>
+                <div class="product_cost">420.000đ</div>
+            </div>
         </div>
-    </div>
-    <div class="watch_all">
-        <span>Xem Tất Cả</span>
-        <i class="fa-solid fa-arrow-right  "></i>
+        <div class="watch_all">
+            <span>Xem Tất Cả</span>
+            <i class="fa-solid fa-arrow-right  "></i>
+        </div>
     </div>

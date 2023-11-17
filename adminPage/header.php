@@ -36,13 +36,13 @@
             <i class="fa-solid fa-plus"></i>
             <a href="index.php?act=themSanPham">Sản phẩm</a>
           </div>
-          <div class="add_quality other" >
-            <i class="fa-solid fa-diamond"></i>
-            <a href="index.php?act=themSoLuong">Thêm số lượng</a>
-          </div>
           <div class="manage_order other">
             <i class="fa-solid fa-suitcase"></i>
-            <a href="index.php?act=quanLiDonHang">Quản lí đơn hàng</a>
+            <a href="index.php?act=hienThiDonHang">Xác nhận đơn hàng</a>
+          </div>
+          <div class="add_quality other" >
+            <i class="fa-solid fa-diamond"></i>
+            <a href="index.php?act=donHangDangGiao">Đơn hàng đang giao</a>
           </div>
           <div class="manage_comments other">
             <i class="fa-regular fa-comment"></i>

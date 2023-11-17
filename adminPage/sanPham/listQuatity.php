@@ -9,9 +9,39 @@
       
         
 
+        
+
+<table class="table_listQuatity">
+    <thead>
+      <tr>
+        <th>Tên</th>
+        <th>Ảnh</th>
+        <th>Kích cỡ</th>
+        <th>Màu</th>
+        <th>Số lượng</th>
+        <th>Chức năng</th>
+      </tr>
+    </thead>
+    <tbody >
+
         <?php 
         
-        var_dump($listQuatity);
+        foreach ($listQuatity as $key => $value) {
+          $xoaChiTietSanPham = ' <button onclick="confirmDeleteDetal('.$value['id'].')">Xóa</button>';
+                echo '
+                <tr>
+                <td>'.$value['name'].'</td>
+                <td><img src="../upload/'.$value['image'].'" alt="" class="img-product"></td>
+                <td>'.$value['size'].'</td>
+                <td>'.$value['color'].'</td>
+                <td>'.$value['total'].'</td>
+                <td>'.$xoaChiTietSanPham.'</td>
+                </tr>
+                ';
+        }
         ?>
-
+    
+    </tbody>
+  </table>
+       
 </div>

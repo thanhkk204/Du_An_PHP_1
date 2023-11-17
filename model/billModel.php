@@ -19,4 +19,9 @@
         $sql = "select max(id) from don_hang" ;
         return pdo_query_value($sql);
     }
+
+    function capNhatSoLuongSanPham($id , $quatity){
+        $sql = "update chi_tiet_san_pham set quatity= quatity - '$quatity' where id = '$id'";
+        pdo_execute($sql);
+    };
 ?>

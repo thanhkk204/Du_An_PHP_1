@@ -21,7 +21,7 @@
 <body class="">
     <div class="header">
         <div class="logo">
-            <img src="./img/logo.webp" alt="">
+        <img src="../img/logo.webp" alt="" />
         </div>
         <div class="nav">
             <ul>
@@ -74,18 +74,37 @@
                 <li>
                     Tin Tức
                 </li>
-                <li>
-                    Hệ Thống Cửa Hàng
+                <li onclick="goToHomeFromDetail()">
+                    Trang chủ
                 </li>
             </ul>
         </div>
-        <div class="bag">
+        <div class="bag" onclick="getCart()">
             Giỏ Hàng
             <i class="fa-solid fa-cart-shopping"></i>
         </div>
         <!-- switch  -->
         <div class="SignIn_Switch">
-            <button class="signIn">Sign In</button>
+        <?php 
+     if (isset($_SESSION["user"])) {
+      // $value = json_decode($_SESSION["user"]);
+      $result =$_SESSION['user'];
+      // $result = get_object_vars($value);
+      echo '<div><h4 style="color: white;">Chào mừng: '.$result['name'].'</h4><br/>';
+      echo '
+      <div><a href="index.php?act=logOut">Đăng xuất</a>
+      <a href="">Xem đơn hàng</a>
+      </div>
+      </div>
+      ';
+     }else{
+
+      echo '
+      <button class="signIn" >Sign In</button>
+      ';
+
+     }
+    ?>
             <div class="switch">
                 <input type="checkbox" id="switch" hidden>
                 <label for="switch" id="switch_change"></label>
@@ -94,16 +113,31 @@
     </div>
     <!-- Form đăng kí -->
     <div class="register">
-        <div class="register_form">
-            <form action="#">
-                <label for="name_signIn">Tên Tài Khoản</label>
-                <input type="text" name="name_signIn" id="name_signIn" placeholder="Your Name...">
+      <div class="register_form">
+        <form action="index.php?act=logIn" method="POST">
+          <label for="name_signIn">Email</label>
+          <input
+            type="text"
+            name="name_signIn"
+            id="name_signIn"
+            placeholder="Your Email..."
+          />
 
-                <label for="pass_signIn">Mật Khẩu</label>
-                <input type="password" name="pass_signIn" id="pass_signIn" placeholder="Your Pass...">
-            </form>
-            <span>Quên Mật Khẩu?</span>
-            <span class="dang_Ki">Đăng kí</span>
-        </div>
+          <label for="pass_signIn">Mật Khẩu</label>
+          <input
+            type="password"
+            name="pass_signIn"
+            id="pass_signIn"
+            placeholder="Your Pass..."
+            
+          />
+          <div class="submitLogin">
+
+              <button type="submit" name="submitLogin">Log In</button>
+          </div>
+        </form>
+        <span>Quên Mật Khẩu?</span>
+        <span class="dang_Ki" onclick="goToRegister()">Đăng kí</span>
+      </div>
     </div>
  

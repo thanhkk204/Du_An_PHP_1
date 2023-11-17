@@ -14,5 +14,14 @@
       alert("Bạn chỉ được chọn tối đa 3 ảnh!");
     }
   });
+
+          function confirmDeleteDetal(id){
+            let confirmDelate;
+            confirmDelate = confirm('Bạn có muốn xóa sản phẩm này không')
+
+            if(confirmDelate){
+              window.location.href = "index.php?act=xoaChiTietSanPham&id="+id
+            }
+          }
 </script>
 </html>

@@ -35,13 +35,14 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 0 50px 0 50px;
-    background-color: #686767;
+    background-color: #090909;
     z-index: 1000000;
     top: 0;
 }
 /* Nav */
 .nav{
     width: 30%;
+    color:white ;
 }
 .nav>ul{
     width: 100%;
@@ -133,6 +134,7 @@ body{
     gap: 10px;
     font-weight: bold;
     font-size: 22px;
+    color:white ;
 }
 .bag>i{
    margin-top: 6px;
@@ -198,52 +200,73 @@ body{
     opacity: 0;
     pointer-events: none;
 }
-.register .register_form{
+.register .register_form {
     width: 700px;
     height: 400px;
     position: absolute;
     left: 37%;
     top: 20%;
     border-radius: 15px;
-    background: url(./img/BakcGround_register.png) center/contain no-repeat ;
-}
-.register .register_form>form{
+    background: url("../img/BakcGround_register.png") center/contain no-repeat;
+  }
+  .register .register_form > form {
     width: 50%;
     height: 50%;
     margin: 4rem 0 0 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-.register .register_form>form>input{
+  }
+  .register .register_form > form > input {
     height: 4rem;
     outline: none;
     border: none;
     border-radius: 15px;
-    font-size: 2rem;
-    padding-left: 1rem ;
-}
-.register .register_form>form>label{
+    font-size: 1.2rem;
+    padding-left: 1rem;
+    padding: 0.6rem 1rem;
+    margin-top: 0.3rem;
+  }
+  .register .register_form > form > label {
     font-size: 2rem;
     margin: 1rem 0 0 0;
     font-weight: bold;
-    background-image: linear-gradient(to right, #18e334 ,#ff8711);
+    background-image: linear-gradient(to top, #e52d2d, #0da8e6);
     display: inline-block;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-}
-.register_form >span{
-    display: inline-block;
+  }
+  .submitLogin {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.8rem;
+    margin-bottom: 3rem;
+  }
+  .submitLogin > button {
+    padding: 0.8rem 2.5rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    background-color: #0da8e6;
+    color: white;
+    transition: all 0.2s ease-in-out;
+  }
+  .submitLogin > button:hover {
+    background-color: #e52d2d;
+    color: white;
+  }
+  .register_form > span {
+    display: block;
     margin-top: 1rem;
     margin-left: 100px;
     font-size: 1.3rem;
-}
-.register_form >span:hover{
+  }
+  .register_form > span:hover {
     color: #ff8711;
     cursor: progress;
-}
-
+  }
 /* End header */
 /* detail sản phẩm */
 .show_product{
@@ -304,14 +327,38 @@ body{
 
 /*  */
 .show_product_right .show_product_right_size{
+    margin-top: 0.3rem;
     display: flex;
     gap: 1rem;
     align-items: center;
     margin-bottom: 1rem;
 }
 .show_product_right .show_product_right_size>p{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
     font-weight: bold;
     font-size: 1.2rem;
+}
+.show_product_right .show_product_right_size>p:hover{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 .show_product_right .show_product_right_size>select{
     width: 100px;
@@ -526,17 +573,17 @@ body{
 }
 .body_product .huongDanMuaHang{
     display: none;
-    position: absolute;
+    position: relative;
     margin-top: 50px;
 }
 .body_product .chinhSachDoiTra{
     display: none;
-    position: absolute;
+    position: relative;
     margin-top: 50px;
 }
 .body_product .binhLuan{
     display: none;
-    position: absolute;
+    position: relative;
     margin-top: 50px;
 }
 /* Product_1 */
@@ -626,8 +673,15 @@ body{
     opacity: 1 !important;
     pointer-events: all !important;
 }
+.none_show{
+    display: none;
+}
 .show_2{
     display: block !important;
+}
+.show_3{
+    opacity: 0.5 !important;
+    pointer-events: none !important;
 }
 .favourite{
     color: red !important;
@@ -767,3 +821,155 @@ body{
 .lastChoice{
     color: red;
 }
+
+/* Form đăng kí */
+.container_form{
+    width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    padding: 4rem;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    margin-top: 12rem;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 0.4rem;
+  }
+  
+  .form-control::placeholder {
+    color: #999;
+    font-size: 1.1rem;
+  }
+  
+  .form-control:focus {
+    border-color: #0da8e6;
+    outline: none;
+  }
+  
+  .btn {
+    background-color: #0da8e6;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #e52d2d;
+  }
+.comments{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.onePerson{
+    width: 70%;
+    display: flex;
+    gap: 1rem;
+}
+.onePerson .img_form{
+    flex: 1;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid gray;
+}
+.onePerson .img_form>img{
+    width: 100%;
+    object-fit: cover;
+}
+.onePerson_infor{
+    flex: 10;
+    /* border: 1px solid grey; */
+    padding: 0.3rem 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+
+}
+.onePerson_name{
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0.2rem 0;
+}
+.onePerson_timeComment{
+    color: grey ;
+    margin-top: 0.2rem ;
+    opacity: 0.8;
+}
+.onePerson_Comment{
+    font-size: 1.2rem;
+    margin: 0.7rem 0 0 0 ;
+    font-weight: 550;
+    margin-bottom: 0.4rem;
+}
+
+.onePerson_2{
+    margin-left: 2rem;
+}
+
+/*  Form comment */
+.comment-form {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    margin-top: 20px;
+    gap: 1rem;
+
+  }
+  
+  .comment-input {
+    width: 500px;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    outline: none;
+  }
+  .comment-input:focus {
+    border-radius: 5px;
+    border: 1px solid red;
+    
+  }
+  
+  .comment-submit {
+    background-color: #00bfff;
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .comment-input {
+    font-size: 16px;
+  }
+  
+  .comment-submit {
+    font-size: 16px;
+  }

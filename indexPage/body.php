@@ -14,19 +14,28 @@
     </div>
 
     <div class="list_product_1">
-     
+
       <?php 
         foreach ($getProductSection as $key => $value) {
+          $formatted_number = number_format($value['price'], 0, ',', '.');
           echo '
-          <div class="product_large" onclick="navigateToDetail('.$value['id'].')">
-          <div class="product">
-            <i class="fa-solid fa-heart"></i>
-            <img src="../upload/'.$value['image0'].'" alt="" />
-            <div class="watch_shoe">Xem Ngay</div>
-          </div>
-          <div class="product_name">'.$value['name'].'</div>
-          <div class="product_cost">'.$value['price'].'đ</div>
-        </div>
+          <div class="product_container " onclick="navigateToDetail('.$value['id'].')">
+
+      <img src="../upload/'.$value['image0'].'" alt="" style="display: none;">
+        <img src="../upload/'.$value['image1'].'" alt="" style="display: none;">
+    
+      <div class="product_image">
+        <img src="../upload/'.$value['image0'].'" alt="">
+        
+      </div>
+      <div class="product_name">
+      '.$value['name'].'
+      </div>
+      <div class="product_price">
+      '.$formatted_number.' VND
+      </div>
+
+    </div>
           ';
         }
       ?>
@@ -89,6 +98,6 @@
       </div>
     </div>
     <div class="watch_all"> -->
-      <span>Xem Tất Cả</span>
-      <i class="fa-solid fa-arrow-right"></i>
+      <!-- <span>Xem Tất Cả</span> -->
     </div>
+    

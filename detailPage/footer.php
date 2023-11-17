@@ -2,7 +2,7 @@
 <div class="footer">
         <div class="footer_top">
             <div class="footer_img">
-                <img src="./img/logo.webp" alt="">
+                <img src="../img/logo.webp" alt="">
             </div>
 
             <div class="footer_address">
@@ -46,11 +46,10 @@
                 <i class="fa-brands fa-instagram"></i>
             </div>
 
-            <p>Copyright © 2023 ZOE®. Powered by Haravan</p>
+            <!-- <p>Copyright © 2023 ZOE®. Powered by Haravan</p> -->
         </div>
 
     </div>
-
     <script src="../navigation/changingQuatity.js"></script>
     <script src="../Trang1/dark.js"></script>
     <script src="../Trang1/header.js"></script>
@@ -61,6 +60,7 @@
     <script src="../Trang2/body_product.js"></script>
     <script src="../navigation/navigate.js"></script>
     <script src="../Trang2/cart.js"></script>
+    
     
 </body>
 

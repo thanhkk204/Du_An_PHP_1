@@ -15,6 +15,7 @@ body_product_nav.forEach((item,index)=>{
             huongDanMuaHang.classList.add('show_2')
 
             thongTinSanPham.classList.remove('show_2')
+            thongTinSanPham.classList.add('none_show')
             chinhSachDoiTra.classList.remove('show_2')
             binhLuan.classList.remove('show_2')
         }else if(index == 2){
@@ -22,6 +23,7 @@ body_product_nav.forEach((item,index)=>{
 
             huongDanMuaHang.classList.remove('show_2')
             thongTinSanPham.classList.remove('show_2')
+            thongTinSanPham.classList.add('none_show')
             binhLuan.classList.remove('show_2')
         }else if(index == 3){
             binhLuan.classList.add('show_2')
@@ -29,6 +31,7 @@ body_product_nav.forEach((item,index)=>{
             huongDanMuaHang.classList.remove('show_2')
             chinhSachDoiTra.classList.remove('show_2')
             thongTinSanPham.classList.remove('show_2')
+            thongTinSanPham.classList.add('none_show')
         }
     })
 
