@@ -22,6 +22,7 @@
 
             <div >
                 <span style="margin-bottom: 0.3rem; display: block;">Màu sắc :</span>
+
                 <div class="show_product_right_color">
                 <?php
                         foreach ($getDetailProductbyColor as $key => $value) { 
@@ -123,100 +124,82 @@
             <p>Bình Luận</p>
         </div>
         <div class="thongTinSanPham ">
-            <p style="font-size: 1.4rem; padding-bottom: 30px;border-bottom: 3px dashed black;"> <span style="margin-bottom: 10px; display: inline-block;"> Giày Cổ Cao ZOE Màu Đen (Zebra High Zoe)</span> <br> 
-                Giày do thương hiệu Zoe gia công & sản xuất <br>
-                Xuất xứ: VIETNAM</p>
-            
-                <p style="margin-top: 15px; font-size: 1.2rem;">Giày cao cổ của ZOE là một sản phẩm giày thời trang sang trọng và hiện đại. Giày cổ cao của ZOE có nhiều mẫu mã và màu sắc khác nhau để người dùng dễ dàng lựa chọn theo sở thích và phong cách của mình. Giày dáng cổ cao có thể được kết hợp với nhiều trang phục khác nhau, từ váy ngắn, quần jean đến quần âu, mang lại cho người mang một vẻ ngoài thời trang, cá tính và sang trọng.</p>
+            <?php 
+               
+                echo '
+                <div>
 
-                <img <?php echo 'src="../upload/'.$getProductById['image1'].'"' ?> alt="">
-                <div style="width: 100%;text-align: center;margin-top: 20px;font-size: 1.3rem;"><p>Giày Cao Cổ Zoe Màu Đen phối đồ cực chất</p></div>
-                <div style="font-size: 1.3rem; margin-top: 20px;"><b style="margin: 10px 0; display: inline-block;"> Mô tả sản phẩm: </b> <br>
-                    Zoe Zebra High Black HT002 / Giày cao cổ Đen ZOE <br>
-                    Xuất xứ: Việt Nam <br>
-                    Size: 35 - 44 <br>
-                    Màu sắc: Đen <br>
-                    Thiết kế: trẻ trung, thời trang, Cổ cao thoải mái. <br>
-                    Phong cách: Giày Cổ cao (giày cao cổ) sẽ là lựa chọn phù hợp với các bạn nam và nữ sử dụng để đi chơi, đi làm <br>
-                    Chất liệu đế: Đế cao su lưu hoá nguyên khối, tính đàn hồi, chịu nhiệt và đặc biệt bền chắc. Đế giày cổ cao có độ dày 3.2cm <br>
-                    Chất liệu vải: Vải Linen với chất liệu không ố vàng, phai màu. Đặc biệt chất vải mềm mại không làm đau chân <br>
-                    Lót giày: Lót giày cao cổ eva êm ái, chống bí hơi, thoát khí, không tạo mùi dù bạn đi liên tục 24/24. <br>
-                     <b style="margin: 10px 0; display: inline-block;">Hướng dẫn vệ sinh giày. </b> <br>
-                    Nên vệ sinh giày vào ban ngày hạn chế vệ sinh giày vào buổi tối <br>
-                    Không để giày ngâm nước quá lâu hoặc mang giày khi đi trời mưa.  <br>
-                    Định kỳ vệ sinh giày, không sử dụng thuốc tẩy để giặt <br>
-                    Quấn khăn giấy kín quanh giày và đem đi phơi khô dưới ánh mặt trời hoặc bóng râm. <br>
-                    Trong thời gian dài không mang, nên vệ sinh giày sạch sẽ và gói giày lại bằng giấy. <br>
-                    <b style="margin: 10px 0; display: inline-block;">Chính sách đổi hàng và bảo hành sản phẩm.</b> <br>
-                    Chấp nhận đổi hàng trong các trường hợp hàng bị lỗi, không đúng mẫu, không vừa size <br>
-                    Hỗ trợ đổi size và đổi mẫu trong vòng 15 ngày kể từ khi nhận sản phẩm. <br>
-                    Hỗ trợ phí vận chuyển để khách hàng đổi sản phẩm mới nếu vì lý do lỗi kỹ thuật
-                    
+                <div style="display: flex; flex-direction: column;gap: 10px ; font-size: 1.3rem;">
+                
+                     <p><span>Tên Sản Phẩm: </span><b>'.$getProductById['name'].'</b></p>
+                     <p><span>Xuất xứ: </span><b>'.$getProductById['origin'].'</b></p>
+                     <p><span>Chất liệu: </span><b>'.$getProductById['fabric'].'</b></p>
+                     <p style="width: 100%; border: 1px dashed black"></p>
                 </div>
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/wPCaW11LFIw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style=" margin: 30px 0 80px 0; width: 100%;height: 900px;"></iframe> -->
+                <div style="width: 500px;overflow: hidden;margin: 0 auto ;margin-top: 2rem;">
+                 <img src="../upload/'.$getProductById['image0'].'" alt="" style="width: 100%;object-fit: contain;">
+                </div>
+                <div style="margin-top: 2rem; font-size: 1.1rem;">
+                '.$getProductById['description'].'
+                </div>
+            </div>
+                '
+            ?>
+            
         </div>
         <div class="huongDanMuaHang none_show">Hướng Dẫn Mua Hàng</div>
         <div class="chinhSachDoiTra none_show">Chính Sách Đổi Trả</div>
         <div class="binhLuan none_show">
             
-        <div class="comments">
+        <div class="comments" >
 
-        <div class="onePerson">
-            <div class="img_form">
+        <?php 
+           foreach ($getComments as $key => $value) {
+               if($key %2 !=0){
+                echo '
+                <div class="onePerson onePerson_2">
+                <div class="img_form">
+    
+                    <img src="../img/gaiy 8.jpg" alt="">
+                </div>
+                <div class="onePerson_infor">
+                    <p class="onePerson_name">'.$value['nameUser'].'</p>
+                    <p class="onePerson_timeComment">'.$value['timestamp'].'</p>
+                    <p class="onePerson_Comment">'.$value['comment'].'</p>
+                </div>
+                 </div>
+                ';
+               }else{
+                echo '
+                <div class="onePerson">
+                <div class="img_form">
+    
+                    <img src="../img/gaiy 8.jpg" alt="">
+                </div>
+                <div class="onePerson_infor">
+                    <p class="onePerson_name">'.$value['nameUser'].'</p>
+                    <p class="onePerson_timeComment">'.$value['timestamp'].'</p>
+                    <p class="onePerson_Comment">'.$value['comment'].'</p>
+                </div>
+                 </div>
+                ';
+               }
+           }
+        ?>
 
-                <img src="../img/gaiy 8.jpg" alt="">
-            </div>
-            <div class="onePerson_infor">
-                <p class="onePerson_name">Lê Huy Thanh</p>
-                <p class="onePerson_timeComment">14:20:2003</p>
-                <p class="onePerson_Comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                     reiciendis vitae aliquam harum alias itaque amet in mag
-                     ni soluta rem autem, error praesentium dolores facere vel fu
-                     git corporis totam et?
-                </p>
-            </div>
-        </div>
-        <div class="onePerson onePerson_2">
-            <div class="img_form">
-
-                <img src="../img/gaiy 8.jpg" alt="">
-            </div>
-            <div class="onePerson_infor">
-                <p class="onePerson_name">Lê Huy Thanh</p>
-                <p class="onePerson_timeComment">14:20:2003</p>
-                <p class="onePerson_Comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                     reiciendis vitae aliquam harum alias itaque amet in mag
-                     ni soluta rem autem, error praesentium dolores facere vel fu
-                     git corporis totam et?
-                </p>
-            </div>
-        </div>
-        <div class="onePerson">
-            <div class="img_form">
-
-                <img src="../img/gaiy 8.jpg" alt="">
-            </div>
-            <div class="onePerson_infor">
-                <p class="onePerson_name">Lê Huy Thanh</p>
-                <p class="onePerson_timeComment">14:20:2003</p>
-                <p class="onePerson_Comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-                     reiciendis vitae aliquam harum alias itaque amet in mag
-                     ni soluta rem autem, error praesentium dolores facere vel fu
-                     git corporis totam et?
-                </p>
-            </div>
-        </div>
         
         </div>
 
 <?php 
-
     if (isset($_SESSION['user'])) {
-       
+        $id_user = $_SESSION['user']['id'];
         echo '
         <div class="comment-form">
-        <input type="text" class="comment-input" placeholder="Nhập bình luận của bạn...">
-       <button class="comment-submit">Gửi</button>
+        <form action="index.php?act=setComments&idSanPham='.$id_sanPham.'&idUser='.$id_user.'" method="POST" >
+        <input type="text" class="comment-input" name="comments2" placeholder="Nhập bình luận của bạn...">
+        <button type="submit" class="comment-submit" name="comment-submit">Gửi</button>
+        </form>
+        
        </div>
         ';
     }else{
@@ -225,54 +208,44 @@
 ?>
         </div>
     </div>
+    
     <!-- Product 2 -->
-
+    
     <div style="margin-top: 4rem;">
 
-        <div class="title_product">
-            <p>Sản Phẩm Liên Quan</p>
-        </div>
+    <div class="title_product">
+      <p>Sản phẩm liên quan</p>
+    </div>
+
+    <div class="list_product_1">
+
+      <?php 
+        foreach ($getProductSection as $key => $value) {
+          $formatted_number = number_format($value['price'], 0, ',', '.');
+          echo '
+          <div class="product_container " onclick="navigateToDetail('.$value['id'].')">
+
+      <img src="../upload/'.$value['image0'].'" alt="" style="display: none;">
+        <img src="../upload/'.$value['image1'].'" alt="" style="display: none;">
     
-        <div class="list_product_1">
-            <div class="product_large">
-                <div class="product">
-                    <i class="fa-solid fa-heart"></i>
-                    <img <?php echo 'src="../upload/'.$getProductById['image0'].'"' ?> alt="">
-                    <div class="watch_shoe">Xem Ngay</div>
-                </div>
-                <div class="product_name">ZOE Authetic White</div>
-                <div class="product_cost">850.000đ</div>
-            </div>
-            <div class="product_large">
-                <div class="product">
-                    <i class="fa-solid fa-heart"></i>
-                    <img <?php echo 'src="../upload/'.$getProductById['image0'].'"' ?> alt="">
-                    <div class="watch_shoe">Xem Ngay</div>
-                </div>
-                <div class="product_name">Zebra High Black</div>
-                <div class="product_cost">700.000đ</div>
-            </div>
-            <div class="product_large">
-                <div class="product">
-                    <i class="fa-solid fa-heart"></i>
-                    <img <?php echo 'src="../upload/'.$getProductById['image0'].'"' ?> alt="">
-                    <div class="watch_shoe">Xem Ngay</div>
-                </div>
-                <div class="product_name">ZOE Authetic N'Loop</div>
-                <div class="product_cost">650.000đ</div>
-            </div>
-            <div class="product_large">
-                <div class="product">
-                    <i class="fa-solid fa-heart"></i>
-                    <img <?php echo 'src="../upload/'.$getProductById['image0'].'"' ?> alt="">
-                    <div class="watch_shoe">Xem Ngay</div>
-                </div>
-                <div class="product_name">ZOE Black Mule</div>
-                <div class="product_cost">420.000đ</div>
-            </div>
-        </div>
-        <div class="watch_all">
-            <span>Xem Tất Cả</span>
-            <i class="fa-solid fa-arrow-right  "></i>
-        </div>
+      <div class="product_image">
+        <img src="../upload/'.$value['image0'].'" alt="">
+        
+      </div>
+      <div class="product_name">
+      '.$value['name'].'
+      </div>
+      <div class="product_price">
+      '.$formatted_number.' VND
+      </div>
+
+    </div>
+          ';
+        }
+      ?>
+    </div>
+    <div class="watch_all">
+      <span>Xem Tất Cả</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
     </div>

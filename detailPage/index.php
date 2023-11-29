@@ -5,7 +5,6 @@ include('../model/adminModule.php');
 include('../model/indexModel.php');
 include('../model/detailModel.php');
 $getProductSection = getProductSection();
-
 include('./header.php');
 
 if(isset($_GET['act'])){
@@ -15,14 +14,42 @@ if(isset($_GET['act'])){
         // điều hướng đến trang chi tiết
         case 'navigateToDetail':
             if(isset($_GET['id'])){
+                $id_sanPham = $_GET['id'];
+               
+                
                 $getProductById = getProductById($_GET['id']);
                 $getDetailProduct = getDetailProduct($_GET['id']);
                    
-                    $json_encode = json_encode($getDetailProduct);
+                $json_encode = json_encode($getDetailProduct);
 
                 $getDetailProductbyColor = getDetailProductbyColor($_GET['id']);
                 $getDetailProductbySize = getDetailProductbySize($_GET['id']);
+
+                // Lấy bình luận 
+                $getComments = getComment($id_sanPham);
                 include('./body.php');
+            }
+        break;
+        // Set bình luận
+        case 'setComments':
+            if(isset($_GET['idSanPham']) && isset($_GET['idUser'])){
+                $id_sanPham = $_GET['idSanPham'];
+                $id_user = $_GET['idUser'];
+                $comments = $_POST['comments2'];
+                setComments($id_sanPham , $id_user , $comments);
+
+                $getProductById = getProductById($id_sanPham);
+                $getDetailProduct = getDetailProduct($id_sanPham);
+                   
+                $json_encode = json_encode($getDetailProduct);
+
+                $getDetailProductbyColor = getDetailProductbyColor($id_sanPham);
+                $getDetailProductbySize = getDetailProductbySize($id_sanPham);
+
+                // Lấy bình luận 
+                $getComments = getComment($id_sanPham);
+                include('./body.php');
+
             }
         break;
         // điều hướng đến giỏ hàng
@@ -74,12 +101,12 @@ if(isset($_GET['act'])){
             include('../indexPage/registerPage.php');
         break;
         default:
-        include('./body.php');
+        echo "Đã bị lỗi 1" ;
             break;
     }
 
 }else{
-    include('./body.php');
+    echo "Đã bị lỗi 2 " ;
 }
 include('./footer.php')
 ?>

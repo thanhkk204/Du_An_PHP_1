@@ -58,6 +58,7 @@ increase.forEach((element, index) => {
 
 // Nút thanh toán
 checkOut.addEventListener('click' , ()=>{
+  const user_hidden = document.querySelector('.user_hidden')
    let cart = JSON.parse(localStorage.getItem('cart'))
 
    prd_number.forEach((element, index) => {

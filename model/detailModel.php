@@ -17,5 +17,14 @@ function getDetailProductbySize($id){
     $sql = "select size , SUM(quatity) as total from san_pham INNER JOIN chi_tiet_san_pham ON chi_tiet_san_pham.id_sanPham = san_pham.id WHERE chi_tiet_san_pham.id_sanPham = '$id' GROUP BY chi_tiet_san_pham.id_sanPham , chi_tiet_san_pham.size ";
     return pdo_query($sql);
 };
-
+function setComments($id_sanPham , $id_user , $comments){
+    $sql = "insert into comments(id_sanPham , id_user , comment) 
+    values ('$id_sanPham' , '$id_user', '$comments')
+    ";
+    pdo_execute($sql);
+};
+function getComment($id_sanPham) {
+    $sql = "select comments.* , users.name as nameUser from comments INNER JOIN users ON comments.id_user = users.id where id_sanPham = '$id_sanPham' ORDER BY comments.id DESC limit 4";
+    return pdo_query($sql);
+};
 ?>

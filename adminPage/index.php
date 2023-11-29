@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include('../model/pdo.php');
 include('../model/adminModule.php');
 
@@ -110,26 +111,123 @@ if(isset($_GET['act'])){
              // Xóa chi tiết sản phẩm      
              case 'xoaChiTietSanPham':
                 $id =  $_GET['id'];
-                echo $id;
                 xoaChiTietSanPham($id);
                 $listQuatity = listQuatity();
                 include('./sanPham/listQuatity.php');
                 break;
+             // Xóa sản phẩm      
+             case 'xoaSanPham':
+                $id =  $_GET['id'];
+                xoaSanPham($id);
+                $danhSachSanPham = layDanhSachSanPham();
+                 include('./sanPham/list.php');
+                 break;
+            // Sửa sản phẩm 
+             case 'suaSanPham':
+                 $id =  $_GET['id'];
+
+                $layMotSanPham = layMotSanPham($id);
+                $listDanhMuc = layDanhSachDanhMuc();
+                 include('./sanPham/update.php');
+                 break;
+            // Sửa sản phẩm excute
+             case 'suaSanPhamExcute':
+                 $id = $_GET['id'];
+                 if(isset($_POST['submit']) ){
+                    $imageCount = count($_FILES['image']['name']);
+                    if ($imageCount > 3) {
+                        $err = 'Bạn chỉ được chọn 3 ảnh';
+                        include('./sanPham/update.php');
+                    }else{
+                        $name = $_POST['name'];
+                        $price = $_POST['price'];
+                        $description = $_POST['description'];
+                        $origin = $_POST['origin'];
+                        $fabric = $_POST['fabric'];
+                        $brand = $_POST['brand'];
+                        $id_danhMuc = $_POST['id_danhMuc'];
+    
+                        $image0 = $_FILES['image']['name'][0];
+                        $image1 = $_FILES['image']['name'][1];
+                        $image2 = $_FILES['image']['name'][2];
+        
+                        $target_dir = '../upload/';
+        
+                        for ($i=0; $i < $imageCount ; $i++) { 
+                            $target_file = $target_dir . basename($_FILES['image']['name'][$i]);
+                            move_uploaded_file($_FILES['image']['tmp_name'][$i] , $target_file);
+                        }
+                        capNhatSanPham($id , $name , $price , $image0 , $image1 , $image2 , $description , $origin , $fabric , $brand , $id_danhMuc);
+                        $message = ' Bạn đã thêm sản phẩm thành công';
+                        $danhSachSanPham = layDanhSachSanPham();
+                        include('./sanPham/list.php');
+                    }
+                }
+                 break;
 
              // Quản lí đơn hàng    
              case 'hienThiDonHang':
                 $danhSachDonHang = layDanhSachDonHang();
                 include('./quanLiDonHang/list.php');
                 break;
+             // Quản lí đơn hàng  Đã hủy  
+             case 'hienThiDonHangDaHuy':
+                $danhSachDonHang = layDanhSachDonHangDaHuy();
+                include('./quanLiDonHang/listCanceled.php');
+                break;
+
              case 'donHangDangGiao':
                 $danhSachDonHang = layDanhSachDonHangDangGiao();
                 include('./donHangDaGiao/list.php');
                 break;
+                // Xác nhận đơn hàng
              case 'xacNhanDonHang':
                     $id = $_GET['id'];
                     xacNhanDonHang($id);
                     $danhSachDonHang = layDanhSachDonHang();
                     include('./quanLiDonHang/list.php');
+
+                break;
+                // Hủy đơn hàng
+             case 'xoaNhanDonHang':
+                    $id = $_GET['id'];
+                    xoaDonHang($id);
+                    $message = "Bạn đã hủy đơn hàng thành công";
+                    $danhSachDonHang = layDanhSachDonHang();
+                    include('./quanLiDonHang/list.php');
+
+                break;
+                // Quản lí bình luận
+             case 'quanLiBinhLuan':
+                    $getComments = getComments();
+                    include('./quanLiBinhLuan/list.php');
+
+                break;
+                // Xóa bình luận
+             case 'xoaComment':
+                $id = $_GET['id'];
+                xoaBinhLuan($id);
+                $getComments = getComments();
+                include('./quanLiBinhLuan/list.php');
+
+                break;
+                // Quản lí người dùng
+             case 'quanLiNguoiDung':
+                $id = $_SESSION['user']['id'];
+                $getUsers = getUsers($id);
+                include('./quanLiNguoiDung/list.php');
+
+                break;
+                // Xóa người dùng
+             case 'xoaNguoiDung':
+                $id_user = $_GET['id'];
+                xoaNguoiDung($id_user);
+                
+                $id = $_SESSION['user']['id'];
+                $getUsers = getUsers($id);
+                include('./quanLiNguoiDung/list.php');
+
+                
 
                 break;
         // Mặc định

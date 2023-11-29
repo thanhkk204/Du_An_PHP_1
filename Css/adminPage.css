@@ -140,6 +140,7 @@
   padding: 10px 10px;
   background-color: rgb(164, 207, 98);
   text-align: start;
+  border: 1px solid black;
 }
 .table_2 td {
   padding: 10px 10px 20px 10px;
@@ -209,6 +210,21 @@
 
 .table_donHang .btn {
   width: 100px;
+  height: 40px;
+  background-color: #0da8e6;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.2s ease-in;
+}
+.table_donHang .btn:hover {
+  background-color: #e52d2d;
+  cursor: pointer;
+}
+.table_donHang .btn>a {
+  text-decoration: none;
+  color: #ccc;
 }
 
 /* Table Quatity */
@@ -239,8 +255,162 @@
 .table_listQuatity  .img-product {
   width: 100px;
 }
+.table_listQuatity>tbody>tr>td>button {
+  padding: 0.5rem 0.9rem;
+    border: none;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 0.3rem;
+}
+.table_listQuatity>tbody>tr>td>button:hover {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
 .img-product {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+}
+/* Nav danh mục */
+
+.narbar_danhMuc {
+  background-color: #0da8e6;
+  color: #fff;
+  padding: 1rem 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.narbar_danhMuc ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.narbar_danhMuc li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.narbar_danhMuc a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+
+}
+
+.narbar_danhMuc a:hover {
+  color: #e52d2d;
+}
+/* Form nhập danh mục */
+.form_danhMuc{
+  width: 40%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form_danhMuc>label{
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.form_danhMuc>input{
+  background-color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: black;
+  
+}
+.form_danhMuc>button{
+  width: 200px;
+  margin: 0.5rem auto;
+  padding: 0.5rem 0.9rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: 
+  #0da8e6 ;
+  transition: all 0.2s ease-in-out;
+  
+}
+.form_danhMuc>button:hover{
+  width: 200px;
+  background-color: 
+  #e52d2d ;
+  cursor: pointer;
+  
+}
+
+/* Table danh mục */
+.table_danhMuc , tr , th ,td {
+  padding: 0.5rem 0.9rem;
+}
+.table_danhMuc , tr ,td {
+  height: 55px;
+}
+.xoaDanhMuc{
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 0.9rem;
+  background-color: #e52d2d;
+  margin: 0.5rem 0.9rem;
+  border-radius: 10px;
+  
+}
+
+/* Thêm sản phẩm */
+.add_sanPham{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 5rem;
+}
+.add_sanPham>button{
+  width: 200px;
+  margin: 0.5rem auto;
+  padding: 0.5rem 0.9rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  background-color: 
+  #0da8e6 ;
+  transition: all 0.2s ease-in-out;
+}
+.add_sanPham>button:hover{
+  width: 200px;
+  background-color: 
+  #e52d2d ;
+  cursor: pointer;
+}
+.form_group{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form_group>label{
+  flex: 1;
+  font-size: 1.2rem ;
+}
+.form_group , input , textarea , select {
+  flex: 3;
+  font-size: 1.2rem ;
+  padding: 1rem 0.9rem;
+  outline: none;
+}
+.form_group , input{
+  height: 25px;
+}
+#image_sanPham{
+  height: 35px;
+  padding: 0;
 }

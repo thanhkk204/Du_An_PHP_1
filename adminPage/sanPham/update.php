@@ -15,18 +15,18 @@
       </ul>
       </nav>
 
-
-       <form action="index.php?act=excuteAddSP" method="POST" enctype="multipart/form-data" class="add_sanPham">
+        <h1 style="text-align: center;margin: 0 0 0.9rem 0;">Cập Nhật Sản Phẩm</h1>
+       <form action="index.php?act=suaSanPhamExcute&id=<?php echo  $layMotSanPham['id']?>" method="POST" enctype="multipart/form-data" class="add_sanPham">
 
        <div class="form_group">
        <label for="name" > Tên sản phẩm:</label>
-        <input type="text" id="name" name="name" placeholder="Nhập tên sản phẩm" required>
+        <input type="text" id="name" name="name" placeholder="Nhập tên sản phẩm" value="<?php echo ''.$layMotSanPham['name'] ?>" required>
        </div>
         
 
         <div class="form_group">
         <label for="price" >Giá:</label>
-        <input type="number" id="price" name="price" placeholder="Nhập giá sản phẩm" required>
+        <input type="number" id="price" name="price" placeholder="Nhập giá sản phẩm" value="<?php echo ''.$layMotSanPham['price'] ?>" required>
        </div>
 
         <div class="form_group">
@@ -40,28 +40,27 @@
 
         <div class="form_group">
         <label for="description" >Mô tả:</label>
-        <textarea name="description" id="" cols="30" rows="3" placeholder="Nhập thông tin chung cho sản phẩm"></textarea>
+        <textarea name="description" id="" cols="30" rows="3" placeholder="Nhập thông tin chung cho sản phẩm" ><?php echo ''.$layMotSanPham['description'] ?></textarea>
        </div>
-        
         <!-- <input type="text" id="description" name="description"> -->
 
         <div class="form_group">
         <label for="origin" >Xuất xứ:</label>
-        <input type="text" id="origin" name="origin" placeholder="Nhập xuất xứ" required>
+        <input type="text" id="origin" name="origin" value="<?php echo ''.$layMotSanPham['origin'] ?>" placeholder="Nhập xuất xứ" required>
        </div>
 
       
 
         <div class="form_group">
         <label for="fabric" >Chất liệu:</label>
-        <input type="text" id="fabric" name="fabric" placeholder="Nhập chất liệu" required>
+        <input type="text" id="fabric" name="fabric" value="<?php echo ''.$layMotSanPham['fabric'] ?>" placeholder="Nhập chất liệu" required>
        </div>
 
        
 
         <div class="form_group">
         <label for="brand" >Thương hiệu:</label>
-        <input type="text" id="brand" name="brand" placeholder="Nhập thương hiệu" required>
+        <input type="text" id="brand" name="brand" value="<?php echo ''.$layMotSanPham['brand'] ?>" placeholder="Nhập thương hiệu" required>
        </div>
 
        <div class="form_group">
@@ -69,10 +68,14 @@
 
         <select name="id_danhMuc" id="id_danhMuc">
                     <?php 
-                    var_dump($listDanhMuc);
+                    
                             foreach($listDanhMuc as $value) {
                                 extract($value);
-                                echo '<option value="'.$id.'">'.$name.'</option>';
+                                if ($layMotSanPham['id_danhMuc'] == $id ) {
+                                    echo '<option value="'.$id.'" selected="selected" >'.$name.'</option>';
+                                }else{
+                                    echo '<option value="'.$id.'">'.$name.'</option>';
+                                }
                             }
                     ?>;
         </select>
@@ -80,7 +83,7 @@
        </div>
 
 
-        <button type="submit" name="submit">Thêm Sản Phẩm</button>
+        <button type="submit" name="submit">Cập Nhật</button>
        </form>
 
        

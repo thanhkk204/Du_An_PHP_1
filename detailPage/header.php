@@ -85,18 +85,30 @@
         </div>
         <!-- switch  -->
         <div class="SignIn_Switch">
-        <?php 
+       
+  <?php 
      if (isset($_SESSION["user"])) {
       // $value = json_decode($_SESSION["user"]);
       $result =$_SESSION['user'];
       // $result = get_object_vars($value);
-      echo '<div><h4 style="color: white;">Chào mừng: '.$result['name'].'</h4><br/>';
-      echo '
-      <div><a href="index.php?act=logOut">Đăng xuất</a>
-      <a href="">Xem đơn hàng</a>
-      </div>
-      </div>
-      ';
+      echo '<div class="pop_container"><h4 style="color: white;" class="pop_name" >Chào mừng: '.$result['name'].'</h4><br/>';
+     
+      if($result['role'] == 'admin'){
+        echo '
+        <div class="pop_menu"><a href="index.php?act=logOut">Đăng xuất</a>
+        <a href="../indexPage/index.php?act=xemDonHang">Xem đơn hàng</a>
+        <a href="../adminPage/index.php">Trang quản trị</a>
+        </div>
+        </div>
+        ';
+      }else{
+        echo '
+        <div class="pop_menu"><a href="index.php?act=logOut">Đăng xuất</a>
+        <a href="index.php?act=xemDonHang">Xem đơn hàng</a>
+        </div>
+        </div>
+        ';
+      }
      }else{
 
       echo '

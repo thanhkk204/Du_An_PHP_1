@@ -85,3 +85,26 @@ product_container.forEach((item, index) => {
     product_image.removeChild(product_checkInto)
   })
 })
+
+// Sản phẩm tìm kiếm
+const links_pop = document.querySelectorAll('.links_pop')
+const searchItems_pop = document.querySelectorAll('.searchItems_pop')
+
+links_pop.forEach((item , index)=>{
+  item.addEventListener('click' ,()=>{
+    searchItems_pop.forEach((item2 , index2)=>{
+      if (index == index2) {
+        item2.classList.toggle('show_pop')
+      }
+    })
+  })
+})
+// Active header 
+
+const pop_name = document.querySelector('.pop_name')
+const pop_menu = document.querySelector('.pop_menu')
+const pop_container = document.querySelector('.pop_container')
+pop_name.addEventListener('click' , ()=>{
+  pop_menu.classList.toggle('show_2')
+})
+

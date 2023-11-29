@@ -23,5 +23,38 @@
               window.location.href = "index.php?act=xoaChiTietSanPham&id="+id
             }
           }
+          function confirmDelete(id){
+            let confirmDelate;
+            confirmDelate = confirm('Bạn có muốn xóa sản phẩm này không')
+
+            if(confirmDelate){
+              window.location.href = "index.php?act=xoaSanPham&id="+id
+            }
+          }
+          function huyDonHanghuyDonHangAdmin(id){
+            let confirmDelate;
+            confirmDelate = confirm('Bạn có muốn hủy đơn hàng này không')
+
+            if(confirmDelate){
+              window.location.href = "index.php?act=xoaNhanDonHang&id="+id
+            }
+          }
+          function xoaComment(id){
+            let confirmDelate;
+            confirmDelate = confirm('Bạn có muốn xóa bình luận này không này không')
+
+            if(confirmDelate){
+              window.location.href = "index.php?act=xoaComment&id="+id
+            }
+          }
+          function xoaNguoiDung(id){
+            let confirmDelate;
+            confirmDelate = confirm('Bạn có muốn xóa bình luận này không này không')
+
+            if(confirmDelate){
+              window.location.href = "index.php?act=xoaNguoiDung&id="+id
+            }
+          }
+          
 </script>
 </html>

@@ -6,7 +6,7 @@ include('../model/indexModel.php');
 
 
     $getProductSection = getProductSection();
-
+    $getProductSectionFull = getProductSectionFull();
 include('./header.php');
 if(isset($_GET['act'])){
     $act = $_GET['act'];
@@ -42,6 +42,7 @@ if(isset($_GET['act'])){
                 include('./registerPage.php');
             }
         break;
+        // Login
         case 'logIn':
             if(isset($_POST['submitLogin'])){
                 $email = $_POST['name_signIn'];
@@ -55,23 +56,99 @@ if(isset($_GET['act'])){
                     echo '
                     <script>
                     window.location.href = "./index2.php";
-    </script>
+                </script>
                     ';
                     // include('./body.php');
                 }
             }
         break;
-
+// Log out
         case 'logOut':
             unset($_SESSION['user']);
             echo '
                     <script>
                     window.location.href = "./index.php";
-    </script>
+           </script>
                     ';
             
         break;
+        // Xem đơn hàng 
+        case 'xemDonHang':
+            $id_user = $_SESSION['user']['id'];
+            $danhSachDonHang = xemDonHang($id_user);
+            include('./donHang.php');
+        break;
+        // Xem đơn hàng đã hủy
+        case 'xemDonHangDaXoa':
+            $id_user = $_SESSION['user']['id'];
+            $danhSachDonHang = xemDonHangDaHuy($id_user);
+            include('./donhanghuy.php');
+        break;
+        // Xóa đơn hàng  
+        case 'xoaNhanDonHang':
+            $id_user = $_SESSION['user']['id'];
+            $id = $_GET['id'];
+            xoaDonHangClient($id);
+            $danhSachDonHang = xemDonHang($id_user);
+            include('./donHang.php');
+        break;
+        // Trang tìm kiếm sản phẩm
+        case 'searchItems':
 
+            $color =  getCoLor();
+            var_dump($color);
+            $size =  getSize();
+            var_dump($size);
+            $getDanhMuc =  getDanhMuc();
+            var_dump($getDanhMuc);
+            
+            include('./searchItems.php');
+        break;
+        // Trang tìm kiếm sản phẩm theo Danh mục
+        case 'getItemsFolders':
+
+            $color =  getCoLor();
+            $size =  getSize();
+            $getDanhMuc =  getDanhMuc();
+            $getIDFolder = $_GET['id'];
+            $getProductSectionFull = getItemsFolder($getIDFolder);
+
+            include('./searchItems.php');
+        break;
+        // Trang tìm kiếm sản phẩm theo Màu
+        case 'getItemsColor':
+
+            $color =  getCoLor();
+            $size =  getSize();
+            $getDanhMuc =  getDanhMuc();
+            $getNameColor = $_GET['name'];
+            $getProductSectionFull = getItemsgetItemsColor($getNameColor);
+
+            include('./searchItems.php');
+        break;
+        // Trang tìm kiếm sản phẩm theo size
+        case 'getItemsSize':
+
+            $color =  getCoLor();
+            $size =  getSize();
+            $getDanhMuc =  getDanhMuc();
+            $getSize = $_GET['size'];
+            $getProductSectionFull = getItemsgetItemsSize($getSize);
+
+            include('./searchItems.php');
+        break;
+        // Tìm kiếm sản phẩm theo tên header
+        case 'searchNameItems':
+
+            $color =  getCoLor();
+            $size =  getSize();
+            $getDanhMuc =  getDanhMuc();
+            $nameItems = $_POST['nameItems'];
+             $getProductSectionFull = getItemsgetItemsName($nameItems);
+
+            include('./searchItems.php');
+        break;
+// Default
         default:
         include('./body.php');
         break;

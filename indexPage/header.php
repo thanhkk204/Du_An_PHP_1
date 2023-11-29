@@ -29,7 +29,7 @@
       <div class="nav">
         <ul>
           <li>
-            Sản Phẩm
+            <a href="index.php?act=searchItems" style="color: white;">Sản Phẩm</a>
             <i class="fa-solid fa-caret-down"></i>
             <div class="li_list hide">
               <ul>
@@ -77,9 +77,23 @@
           <li onclick="goToHome()">Trang chủ</li>
         </ul>
       </div>
-      <div class="bag" onclick="getCart()">
-        Giỏ Hàng
-        <i class="fa-solid fa-cart-shopping"></i>
+      <div style=" display: flex; gap: 15px; align-items: center;">
+
+        <div class="bag" onclick="getCart()">
+          Giỏ Hàng
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+        <div class="searchItems" style="    font-weight: bold;
+         font-size: 22px;
+         color: white;
+         margin-top: 4px;">
+        <i class="fa-solid fa-magnifying-glass" ></i>
+
+        <form action="index.php?act=searchNameItems" method="POST">
+          <input type="text" name="nameItems">
+          <button type="submit">Tìm kiếm</button>
+        </form>
+        </div>
       </div>
       <!-- switch  -->
       <div class="SignIn_Switch">
@@ -88,13 +102,24 @@
       // $value = json_decode($_SESSION["user"]);
       $result =$_SESSION['user'];
       // $result = get_object_vars($value);
-      echo '<div><h4 style="color: white;">Chào mừng: '.$result['name'].'</h4><br/>';
-      echo '
-      <div><a href="index.php?act=logOut">Đăng xuất</a>
-      <a href="">Xem đơn hàng</a>
-      </div>
-      </div>
-      ';
+      echo '<div class="pop_container"><h4 style="color: white;" class="pop_name" >Chào mừng: '.$result['name'].'</h4><br/>';
+     
+      if($result['role'] == 'admin'){
+        echo '
+        <div class="pop_menu"><a href="index.php?act=logOut">Đăng xuất</a>
+        <a href="index.php?act=xemDonHang">Xem đơn hàng</a>
+        <a href="../adminPage/index.php">Trang quản trị</a>
+        </div>
+        </div>
+        ';
+      }else{
+        echo '
+        <div class="pop_menu"><a href="index.php?act=logOut">Đăng xuất</a>
+        <a href="index.php?act=xemDonHang">Xem đơn hàng</a>
+        </div>
+        </div>
+        ';
+      }
      }else{
 
       echo '

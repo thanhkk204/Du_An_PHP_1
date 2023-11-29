@@ -1,11 +1,20 @@
 
 <div class="admin_right-bottom">
-<div class="narbar_danhMuc">
+        <!-- <div class="narbar_danhMuc">
                 <a href="index.php?act=themSanPham">Thêm sản phẩm</a>
                 <a href="index.php?act=layDanhSachSanPham">Danh sách</a>
                 <a href="index.php?act=themSoLuongSanPham">Thêm số lượng</a>
                 <a href="index.php?act=laySoLuongSanPham">Danh sách số lượng</a>
-        </div>
+        </div> -->
+
+        <nav class="narbar_danhMuc">
+      <ul>
+      <li><a href="index.php?act=themSanPham">Thêm sản phẩm</a></li>
+      <li><a href="index.php?act=layDanhSachSanPham">Danh sách</a></li>
+      <li><a href="index.php?act=themSoLuongSanPham">Thêm số lượng</a></li>
+      <li><a href="index.php?act=laySoLuongSanPham">Danh sách số lượng</a></li>
+      </ul>
+      </nav>
       
         
 
@@ -27,7 +36,7 @@
            foreach ($danhSachSanPham as $key => $value) {
             // extract($value);
             $suaSanPham = 'index.php?act=suaSanPham&id='.$value['id'];
-            $xoaSanPham= 'index.php?act=xoaSanPham&id='.$value['id'];
+            $xoaSanPham= ' <button onclick="confirmDelete('.$value['id'].')">Xóa</button>';
             $path = '../upload/';
             if($value['image0']){
               $img_dir = $path . $value['image0'];
@@ -44,13 +53,13 @@
            <td>'.$value['origin'].'</td>
            <td>'.$value['fabric'].'</td>
            <td>'.$value['brand'].'</td>
-           <td>'.$value['id_danhMuc'].'</td>
+           <td>'.$value['name_danh_muc'].'</td>
            <td >
-           <span> <a href="'.$suaSanPham.'"><button>Sửa</button></a> </span>
-           <span><a href="'.$xoaSanPham.'"><button>Xóa</button></a> </span>
+           <span> <a href="'.$suaSanPham.'"><button>Sửa</button></a></span>
+           <span><a href="#">'.$xoaSanPham.'</a></span>
            
            </td>
-         </tr>';
+           </tr>';
              }
           ?>
         </table>

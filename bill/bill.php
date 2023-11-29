@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+      session_start();
+  ?>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,7 +23,11 @@
     <link rel="stylesheet" href="../Css/Bill.css" />
   </head>
   <body>
+  
     <div class="container">
+      <?php 
+        
+      ?>
         <div class="productor">
             <table class="productor_table" border="1">
               <thead>

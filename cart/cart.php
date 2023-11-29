@@ -106,7 +106,18 @@
             <div class="total_money">
                 <div class="money">14.000.000 đ</div>
                 <p style="color: red;">Không cần thuế và không được giảm giá</p>
-                <button class="checkOut">Thanh Toán</button>
+
+                
+                
+                <?php
+                if (isset($_SESSION['user'])) {
+
+                    echo '<button class="checkOut">Thanh Toán</button>';
+                }else{
+                    echo '<button class="checkOut opacity_button">Thanh Toán</button>';
+                    echo '<p style="color: red;margin-top: 1rem ;">Bạn cần đăng nhập để thanh toán</p>';
+                }
+                ?>
             </div>
         </div>
        
