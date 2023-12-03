@@ -27,10 +27,17 @@
           <button type="submit" name="submitRegister" id="submitRegister" class="btn btn-primary">Đăng ký</button>
       </div>
     </form>
-    <?php 
-       if(isset($message)){
-        echo '<p>'.$message.'</p>';
-       }
-    ?>
+    <?php if(isset($message) && $message != ''){
+       echo '<p style="margin-top: 1rem;">'.$message.'</p>';
+       }else{
+        echo '';
+       } ?> 
+
+       <?php if(isset($err) && $err != ''){
+       echo '<p style="color:red ; margin-top: 1rem;">'.$err.'</p>';
+       }else{
+        echo '';
+       } ?> 
+
    
   </div>

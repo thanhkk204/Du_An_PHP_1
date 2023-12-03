@@ -208,7 +208,7 @@
   width: 100px;
 }
 
-.table_donHang .btn {
+.btn {
   width: 100px;
   height: 40px;
   background-color: #0da8e6;
@@ -218,11 +218,11 @@
   border-radius: 10px;
   transition: all 0.2s ease-in;
 }
-.table_donHang .btn:hover {
+.btn:hover {
   background-color: #e52d2d;
   cursor: pointer;
 }
-.table_donHang .btn>a {
+.btn>a {
   text-decoration: none;
   color: #ccc;
 }
@@ -370,7 +370,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 .add_sanPham>button{
   width: 200px;
@@ -413,4 +413,24 @@
 #image_sanPham{
   height: 35px;
   padding: 0;
+}
+/* Trang thống kê */
+.thongKePhu{
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card{
+  width: 235px;
+  height: 80px;
+  background-color: #e4e6e7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: 10px;
 }

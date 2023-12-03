@@ -6,7 +6,9 @@ include('../model/indexModel.php');
 
 
     $getProductSection = getProductSection();
-
+    $getProductSectionFull = getProductSectionFull();
+    $getProductViews = getProductViews();
+    
 include('./header.php');
 if(isset($_GET['act'])){
     $act = $_GET['act'];

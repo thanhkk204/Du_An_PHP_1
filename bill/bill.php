@@ -51,6 +51,8 @@
                          $value = get_object_vars($value2);
 
                          $total =  intval($value['quatity'])  * intval($value['price'] ) ;
+                         $formatted_total = number_format($total, 0, ',', '.');
+                         $formatted_price = number_format($value['price'], 0, ',', '.');
                          
                          echo '
                          <tr>
@@ -64,8 +66,8 @@
                          <td>'.$value['color'].'</td>
                          <td>'.$value['size'].'</td> 
                          <td>'.$value['quatity'].'</td>
-                         <td>'.$value['price'].'</td>
-                         <td>'.$total.'</td>
+                         <td>'.$formatted_price.'</td>
+                         <td>'.$formatted_total.'</td>
                        </tr>
                          ';
                         }
@@ -79,17 +81,17 @@
         <form action="index.php?act=getBill" method="post">
             <div class="form-group">
               <label for="fullname">Họ và tên</label>
-              <input type="text" class="form-control" id="fullname" name="fullname" />
+              <input type="text" class="form-control" id="fullname" name="fullname" required/>
             </div>
           
             <div class="form-group">
               <label for="address">Địa chỉ</label>
-              <input type="text" class="form-control" id="address" name="address" />
+              <input type="text" class="form-control" id="address" name="address" required/>
             </div>
           
             <div class="form-group">
               <label for="phone_number">Số điện thoại</label>
-              <input type="tel" class="form-control" id="phone_number" name="phone_number" />
+              <input type="tel" class="form-control" id="phone_number" name="phone_number" required/>
             </div>
           
             <div class="form-group">

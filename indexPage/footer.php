@@ -50,11 +50,22 @@
     <script>
       function huyDonHangClient(id){
             let confirmDelate;
-            confirmDelate = confirm('Bạn có muốn xóa sản phẩm này không')
+            confirmDelate = confirm('Bạn chắc muốn xóa sản phẩm này , Nếu đơn hàng không có sản phẩm sẽ tự động xóa')
 
             if(confirmDelate){
               window.location.href = "index.php?act=xoaNhanDonHang&id="+id
             }
+          }
+      function huyDonHangClientAll(id){
+            let confirmDelate;
+            confirmDelate = confirm('Bạn có muốn xóa đơn hàng này không')
+
+            if(confirmDelate){
+              window.location.href = "index.php?act=xoaNhanDonHangAll&id="+id
+            }
+          }
+      function chiTietDonHang(id){
+              window.location.href = "index.php?act=chiTietDonHang&id="+id
           }
 
       // Pop tìm kiếm tên sản phẩm

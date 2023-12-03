@@ -1,3 +1,5 @@
+
+<h1 style="width: 100%; margin-bottom: 1.5rem; text-align: center; font-size: 2.5rem;">Tất cả sản phẩm</h1>
 <div class="searchItems_container">
     <div class="searchItems_form">
 
@@ -62,6 +64,27 @@
                                 }
                             ?>
                             
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <p class="links_pop">Giá bán</p>
+                
+                <div class="searchItems_pop">
+                    <ul>
+                    <li>
+                    <a href="index.php?act=getItemsPrice&loaiGia=1">Dưới 200.000</a>
+                    </li>
+                    <li>
+                    <a href="index.php?act=getItemsPrice&loaiGia=2">200.000 - 400.000</a>
+                    </li>
+                    <li>
+                    <a href="index.php?act=getItemsPrice&loaiGia=3">400.000 - 500.000</a>
+                    </li>
+                    <li>
+                    <a href="index.php?act=getItemsPrice&loaiGia=4">Trên 500.000</a>
+                    </li>
                     </ul>
                 </div>
             </div>

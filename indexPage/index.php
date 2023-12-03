@@ -7,6 +7,7 @@ include('../model/indexModel.php');
 
     $getProductSection = getProductSection();
     $getProductSectionFull = getProductSectionFull();
+    $getProductViews = getProductViews();
 include('./header.php');
 if(isset($_GET['act'])){
     $act = $_GET['act'];
@@ -32,6 +33,12 @@ if(isset($_GET['act'])){
 
         case 'register':
             if(isset($_POST['submitRegister'])){
+            $email = $_POST['email'];
+            $checkRegister = checkRegister($email);
+            if (!empty($checkRegister)) {
+                $err = "Email đã tồn tại" ;
+                include('./registerPage.php');
+            }else{
                 $name = $_POST['name'];
                 $email = $_POST['email'];
                 $phone = $_POST['phone'];
@@ -41,24 +48,21 @@ if(isset($_GET['act'])){
                 $message = 'Bạn đã đăng kí thành công' ;
                 include('./registerPage.php');
             }
+            }
         break;
         // Login
         case 'logIn':
             if(isset($_POST['submitLogin'])){
                 $email = $_POST['name_signIn'];
                 $password = $_POST['pass_signIn'];
-                $result = logIn( $email , $password );
+                $result = logIn($email , $password);
                 if ($result) {
-                   
                     $_SESSION['user'] = $result;
-                    // $url = $_SERVER['PHP_SELF'];
-                    // header("Refresh: 0; url=$url");
                     echo '
                     <script>
                     window.location.href = "./index2.php";
-                </script>
+                    </script>
                     ';
-                    // include('./body.php');
                 }
             }
         break;
@@ -75,7 +79,8 @@ if(isset($_GET['act'])){
         // Xem đơn hàng 
         case 'xemDonHang':
             $id_user = $_SESSION['user']['id'];
-            $danhSachDonHang = xemDonHang($id_user);
+            $donHangCuaUser = xemDonHang($id_user);
+            
             include('./donHang.php');
         break;
         // Xem đơn hàng đã hủy
@@ -89,18 +94,31 @@ if(isset($_GET['act'])){
             $id_user = $_SESSION['user']['id'];
             $id = $_GET['id'];
             xoaDonHangClient($id);
-            $danhSachDonHang = xemDonHang($id_user);
+            $donHangCuaUser = xemDonHang($id_user);
             include('./donHang.php');
+        break;
+        // Xóa đơn hàng all
+        case 'xoaNhanDonHangAll':
+            $id_user = $_SESSION['user']['id'];
+            $id = $_GET['id'];
+            huyDonHangAll($id);
+            $donHangCuaUser = xemDonHang($id_user);
+            include('./donHang.php');
+        break;
+        // Xem chi tiết đơn hàng
+        case 'chiTietDonHang':
+            $id_user = $_SESSION['user']['id'];
+            $id_donHang = $_GET['id'];
+            $chiTietDonHang = chiTietDonHang($id_donHang);
+            $donHang = donHang($id_donHang);
+            include('./chiTietDonHang.php');
         break;
         // Trang tìm kiếm sản phẩm
         case 'searchItems':
 
             $color =  getCoLor();
-            var_dump($color);
             $size =  getSize();
-            var_dump($size);
             $getDanhMuc =  getDanhMuc();
-            var_dump($getDanhMuc);
             
             include('./searchItems.php');
         break;
@@ -134,6 +152,17 @@ if(isset($_GET['act'])){
             $getDanhMuc =  getDanhMuc();
             $getSize = $_GET['size'];
             $getProductSectionFull = getItemsgetItemsSize($getSize);
+
+            include('./searchItems.php');
+        break;
+        // Trang tìm kiếm sản phẩm theo Giá
+        case 'getItemsPrice':
+
+            $color =  getCoLor();
+            $size =  getSize();
+            $getDanhMuc =  getDanhMuc();
+            $loaiGia = $_GET['loaiGia'];
+            $getProductSectionFull = getItemsPrice($loaiGia);
 
             include('./searchItems.php');
         break;

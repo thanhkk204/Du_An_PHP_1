@@ -31,9 +31,17 @@ if(isset($_GET['act'])){
         // Xóa Danh mục
         case 'xoaDanhMuc':
             if(isset($_GET['id'])){
-                xoaDanhMuc($_GET['id']);
-                $danhSachDanhMuc = layDanhSachDanhMuc();
-                include('./danhMuc/list.php');
+                $checkDanhMuc = checkDanhMuc($_GET['id']);
+                if (!empty($checkDanhMuc)) {
+                   $err = 'Bạn hãy chắc rằng không có sản phẩm nào trong danh mục trước khi xóa' ;
+                   $danhSachDanhMuc = layDanhSachDanhMuc();
+                   include('./danhMuc/list.php');
+                }else{
+                    xoaDanhMuc($_GET['id']);
+                    $message = 'Bạn đã xóa thành công danh mục' ;
+                    $danhSachDanhMuc = layDanhSachDanhMuc();
+                    include('./danhMuc/list.php');
+                }
             }
       
         break;
@@ -47,31 +55,38 @@ if(isset($_GET['act'])){
          case 'excuteAddSP':
             $listDanhMuc = layDanhSachDanhMuc();
             if(isset($_POST['submit']) ){
-                $imageCount = count($_FILES['image']['name']);
-                if ($imageCount > 3) {
-                    $err = 'Bạn chỉ được chọn 3 ảnh';
-                    include('./sanPham/add.php');
-                }else{
-                    $name = $_POST['name'];
-                    $price = $_POST['price'];
-                    $description = $_POST['description'];
-                    $origin = $_POST['origin'];
-                    $fabric = $_POST['fabric'];
-                    $brand = $_POST['brand'];
-                    $id_danhMuc = $_POST['id_danhMuc'];
-
-                    $image0 = $_FILES['image']['name'][0];
-                    $image1 = $_FILES['image']['name'][1];
-                    $image2 = $_FILES['image']['name'][2];
+                $name = $_POST['name'];
+                $checkName = checkName($name);
+                if (empty($checkName)) {
+                    $imageCount = count($_FILES['image']['name']);
+                    if ($imageCount > 3) {
+                        $err = 'Bạn chỉ được chọn 3 ảnh';
+                        include('./sanPham/add.php');
+                    }else{
+                        $name = $_POST['name'];
+                        $price = $_POST['price'];
+                        $description = $_POST['description'];
+                        $origin = $_POST['origin'];
+                        $fabric = $_POST['fabric'];
+                        $brand = $_POST['brand'];
+                        $id_danhMuc = $_POST['id_danhMuc'];
     
-                    $target_dir = '../upload/';
-    
-                    for ($i=0; $i < $imageCount ; $i++) { 
-                        $target_file = $target_dir . basename($_FILES['image']['name'][$i]);
-                        move_uploaded_file($_FILES['image']['tmp_name'][$i] , $target_file);
+                        $image0 = $_FILES['image']['name'][0];
+                        $image1 = $_FILES['image']['name'][1];
+                        $image2 = $_FILES['image']['name'][2];
+        
+                        $target_dir = '../upload/';
+        
+                        for ($i=0; $i < $imageCount ; $i++) { 
+                            $target_file = $target_dir . basename($_FILES['image']['name'][$i]);
+                            move_uploaded_file($_FILES['image']['tmp_name'][$i] , $target_file);
+                        }
+                        themSanPham($name , $price , $image0 , $image1 , $image2 , $description , $origin , $fabric , $brand , $id_danhMuc);
+                        $message = ' Bạn đã thêm sản phẩm thành công';
+                        include('./sanPham/add.php');
                     }
-                    themSanPham($name , $price , $image0 , $image1 , $image2 , $description , $origin , $fabric , $brand , $id_danhMuc);
-                    $message = ' Bạn đã thêm sản phẩm thành công';
+                }else{
+                    $err = "Tên sản phẩm đã tồn tại trong kho";
                     include('./sanPham/add.php');
                 }
             }
@@ -95,7 +110,13 @@ if(isset($_GET['act'])){
                     $size = $_POST['size'];
                     $color = $_POST['color'];
 
-                    themSoLuong($id_sanPham , $size , $color , $quatity);
+                    $checkChiTietSanPham = checkChiTietSanPham($id_sanPham , $size , $color);
+                    if (empty($checkChiTietSanPham)) {
+                       
+                        themSoLuong($id_sanPham , $size , $color , $quatity);
+                    }else{
+                        updateChiTietSanPham($id_sanPham , $size , $color , $quatity);
+                    }
 
                     $message = "Bạn đã thêm số lượng thành công";
                 }
@@ -118,10 +139,20 @@ if(isset($_GET['act'])){
              // Xóa sản phẩm      
              case 'xoaSanPham':
                 $id =  $_GET['id'];
-                xoaSanPham($id);
-                $danhSachSanPham = layDanhSachSanPham();
-                 include('./sanPham/list.php');
-                 break;
+                $checkSanPham = checkSanPham($id);
+                if (empty($checkSanPham)) {
+                    xoaSanPham($id);
+                    
+                    $message = "Bạn đã xóa thành công sản phẩm";
+                    $danhSachSanPham = layDanhSachSanPham();
+                     include('./sanPham/list.php');
+                     break;
+                }else{
+                    $err = "Bạn hãy chắc chắn rằng sản phẩm không có biến thể trước khi xóa";
+                    $danhSachSanPham = layDanhSachSanPham();
+                     include('./sanPham/list.php');
+                     break;
+                }
             // Sửa sản phẩm 
              case 'suaSanPham':
                  $id =  $_GET['id'];
@@ -167,24 +198,24 @@ if(isset($_GET['act'])){
 
              // Quản lí đơn hàng    
              case 'hienThiDonHang':
-                $danhSachDonHang = layDanhSachDonHang();
+                $getAllBill = getAllBill();
                 include('./quanLiDonHang/list.php');
                 break;
              // Quản lí đơn hàng  Đã hủy  
              case 'hienThiDonHangDaHuy':
-                $danhSachDonHang = layDanhSachDonHangDaHuy();
+                $getAllBillCanceled = getAllBillCanceled();
                 include('./quanLiDonHang/listCanceled.php');
                 break;
 
              case 'donHangDangGiao':
-                $danhSachDonHang = layDanhSachDonHangDangGiao();
+                $getBillDrivering = getBillDrivering();
                 include('./donHangDaGiao/list.php');
                 break;
                 // Xác nhận đơn hàng
              case 'xacNhanDonHang':
                     $id = $_GET['id'];
                     xacNhanDonHang($id);
-                    $danhSachDonHang = layDanhSachDonHang();
+                    $getAllBill = getAllBill();
                     include('./quanLiDonHang/list.php');
 
                 break;
@@ -193,8 +224,17 @@ if(isset($_GET['act'])){
                     $id = $_GET['id'];
                     xoaDonHang($id);
                     $message = "Bạn đã hủy đơn hàng thành công";
-                    $danhSachDonHang = layDanhSachDonHang();
+                    $getAllBill = getAllBill();
                     include('./quanLiDonHang/list.php');
+
+                break;
+                // Xác nhận giao thành công
+             case 'xacNhanGiaoThanhCong':
+                    $id = $_GET['id'];
+                    xacNhanGiaoThanhCong($id);
+                    $message = "Đơn hàng đã được giao thành công";
+                    $getBillDrivering = getBillDrivering();
+                     include('./donHangDaGiao/list.php');
 
                 break;
                 // Quản lí bình luận
@@ -226,9 +266,17 @@ if(isset($_GET['act'])){
                 $id = $_SESSION['user']['id'];
                 $getUsers = getUsers($id);
                 include('./quanLiNguoiDung/list.php');
+                break;
+                // Lấy thống kê
+             case 'getThongKe':
+                $donHangGiao = donHangGiao();
+                $donHangHuy = donHangHuy();
+                $binhLuan = binhLuan();
+                $doanhSo = doanhSo();
 
-                
-
+                 $getDoanhSo = getDoanhSo();
+                 $json_encode = json_encode($getDoanhSo);
+                include('./thongKe/thongKe.php');
                 break;
         // Mặc định
         default:

@@ -54,12 +54,18 @@
     <script src="../navigation/navigate.js"></script>
     <script src="../Trang2/cart.js"></script>
     
-    <!-- <script>
-      const comment_submit = document.querySelector('.comment-submit')
-      comment_submit.addEventListener('click' , ()=>{
-        console.log('thanh')
+    <script>
+     // Pop tìm kiếm tên sản phẩm
+     const searchItems = document.querySelector('.searchItems')
+      const formSearch = document.querySelector('.searchItems>form')
+
+      searchItems.addEventListener('click' , ()=>{
+        formSearch.classList.toggle('show')
       })
-    </script> -->
+      formSearch.addEventListener('click' , (event)=>{
+        event.stopPropagation();
+      })
+    </script>
 </body>
 
 </html>

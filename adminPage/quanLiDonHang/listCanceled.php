@@ -7,38 +7,69 @@
           </ul>
     </nav>
     
-    <table class="table table-bordered table-hover table_donHang">
-      <thead>
-        <tr>
-          <th >Ảnh</th>
-          <th>Tên</th>
-          <th>Số lượng</th>
-          <th>Màu</th>
-          <th>Tổng tiền</th>
-          <th>Trạng thái</th>
-        </tr>
-      </thead>
-      <tbody>
         <?php 
-          foreach ($danhSachDonHang as $key => $value) {
-                extract($value) ;
-    
-                echo '
-                <tr>
-                <td><img src="../upload/'.$img.'" alt="" width="100"></td>
-                <td>'.$name.'</td>
-                <td>'.$quatity.'</td>
-                <td>'.$color.'</td>
-                <td>'.$total_money.'</td>
-                <td>
-                '.$trang_thai.'
-                </td>
-              </tr>
-                ';
-          }
+        foreach ($getAllBillCanceled as $key => $value) {
+          $id_donHang = $value['id'];
+          $trang_thai_don_hang = $value['trang_thai'];
+          $getListCanceled = getListCanceled($id_donHang);
+          echo '<div style="background-color: #f5f5f5;
+          box-shadow: 0 2px 8px #0da8e6;margin-bottom: 3rem;padding: 1.5rem 0; border-radius: 10px ;overflow: hidden;">';
+          echo '<table class="table table-bordered table-hover table_donHang">
+          <thead>
+            <tr>
+              <th >Ảnh</th>
+              <th>Tên</th>
+              <th>Số lượng</th>
+              <th>Màu</th>
+              <th>Size</th>
+              <th>Tổng tiền</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>';
+
+          foreach ($getListCanceled as $key => $value2) {
+            extract($value2) ;
+            $formatted_total = number_format($total_money, 0, ',', '.');
+
+            if ( $trang_thai_don_hang == 'huy_don_hang_user') {
+            
+              echo '
+              <tr>
+              <td><img src="../upload/'.$img.'" alt="" width="100"></td>
+              <td>'.$name.'</td>
+              <td>'.$quatity.'</td>
+              <td>'.$color.'</td>
+              <td>'.$size.'</td>
+              <td>'.$formatted_total.'</td>
+              <td>
+              Người dùng hủy đơn
+              </td>
+            </tr>
+              ';
+            }else{
+              echo '
+              <tr>
+              <td><img src="../upload/'.$img.'" alt="" width="100"></td>
+              <td>'.$name.'</td>
+              <td>'.$quatity.'</td>
+              <td>'.$color.'</td>
+              <td>'.$size.'</td>
+              <td>'.$formatted_total.'</td>
+              <td>
+              Admin hủy đơn
+              </td>
+            </tr>
+              ';
+            }
+      }
+
+          echo '</tbody>
+          </table> </div>';
+        }
+        
         ?>
-      </tbody>
-    </table>
+      
 
 </div>
 

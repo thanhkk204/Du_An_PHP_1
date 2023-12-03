@@ -36,3 +36,14 @@
        
 </div>
 
+<?php if(isset($message) && $message != ''){
+       echo '<p style="color:red ;margin-top: 1rem;">'.$message.'</p>';
+       }else{
+        echo '';
+       } ?> 
+
+       <?php if(isset($err) && $err != ''){
+       echo '<p style="color:red ; margin-top: 1rem;">'.$err.'</p>';
+       }else{
+        echo '';
+       } ?> 

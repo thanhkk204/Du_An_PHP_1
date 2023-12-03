@@ -12,7 +12,7 @@ let sizeProduct = document.querySelector(".show_product_right_size")
 let colorProduct = document.querySelector(".show_product_right_color")
 let getColorElements = document.getElementsByClassName("getColorElement")
 let getSizeElements = document.getElementsByClassName("getSizeElement")
-
+let getButtonBuy = document.querySelector('.show_product_right_buy_cart')
 //  Sử lí tăng giảm số lượng sản phẩm
 let so_luong_sanPham = Number(prd_number.innerText)
 decline.addEventListener("click", (e) => {
@@ -71,6 +71,7 @@ for (let i = 0; i < getSizeElements.length; i++) {
         colorProduct.innerHTML = ""
         let newColor = document.createElement("p")
         newColor.innerHTML = ColorDom.innerHTML
+        X
         colorProduct.replaceChildren(newColor)
         // Gắn sự kiện db click để reload
         newColor.addEventListener('dblclick' , ()=>{

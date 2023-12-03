@@ -16,7 +16,10 @@
                 <?php echo $getProductById['name']?>
             </div>
             <div class="show_product_right_cost">
-            <?php echo $getProductById['price']?>
+            <?php 
+            $formatted_number = number_format($getProductById['price'], 0, ',', '.');
+            echo $formatted_number .' VND' ;
+            ?>
             </div>
 
 
@@ -68,9 +71,8 @@
                 </div>
                 <?php 
                    if (isset($_SESSION['user'])) {
-       
                     echo '
-                    <p class="show_product_right_buy_cart " >Thêm Vào Giỏ</p>
+                    <p class="show_product_right_buy_cart" >Thêm Vào Giỏ</p>
                     <p class="show_product_right_buy_buyNow">Mua Ngay</p>
                     ';
                 }else{
@@ -127,7 +129,7 @@
             <?php 
                
                 echo '
-                <div>
+                <div  style="width: 100%;">
 
                 <div style="display: flex; flex-direction: column;gap: 10px ; font-size: 1.3rem;">
                 
@@ -220,7 +222,7 @@
     <div class="list_product_1">
 
       <?php 
-        foreach ($getProductSection as $key => $value) {
+        foreach ($getProductFolders as $key => $value) {
           $formatted_number = number_format($value['price'], 0, ',', '.');
           echo '
           <div class="product_container " onclick="navigateToDetail('.$value['id'].')">
@@ -244,8 +246,8 @@
         }
       ?>
     </div>
-    <div class="watch_all">
+    <a href="../indexPage/index.php?act=searchItems" style="display: block; " class="watch_all">
       <span>Xem Tất Cả</span>
       <i class="fa-solid fa-arrow-right"></i>
-    </div>
+    </a>
     </div>

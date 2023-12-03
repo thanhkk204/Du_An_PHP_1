@@ -5,6 +5,7 @@ include('../model/adminModule.php');
 include('../model/indexModel.php');
 include('../model/detailModel.php');
 $getProductSection = getProductSection();
+
 include('./header.php');
 
 if(isset($_GET['act'])){
@@ -27,28 +28,37 @@ if(isset($_GET['act'])){
 
                 // Lấy bình luận 
                 $getComments = getComment($id_sanPham);
+                // Lấy sản phẩm liên quan tới danh mục
+                $getProductFolders =  getProductFolders($id_sanPham);
+                // Tăng view của sản phẩm 
+                increaseViews($_GET['id']);
                 include('./body.php');
             }
         break;
         // Set bình luận
         case 'setComments':
             if(isset($_GET['idSanPham']) && isset($_GET['idUser'])){
+
+                
                 $id_sanPham = $_GET['idSanPham'];
                 $id_user = $_GET['idUser'];
                 $comments = $_POST['comments2'];
-                setComments($id_sanPham , $id_user , $comments);
-
-                $getProductById = getProductById($id_sanPham);
-                $getDetailProduct = getDetailProduct($id_sanPham);
-                   
-                $json_encode = json_encode($getDetailProduct);
-
-                $getDetailProductbyColor = getDetailProductbyColor($id_sanPham);
-                $getDetailProductbySize = getDetailProductbySize($id_sanPham);
-
-                // Lấy bình luận 
-                $getComments = getComment($id_sanPham);
-                include('./body.php');
+                // $checkComment = checkComment($id_sanPham , $id_user);
+                    setComments($id_sanPham , $id_user , $comments);
+    
+                    $getProductById = getProductById($id_sanPham);
+                    $getDetailProduct = getDetailProduct($id_sanPham);
+                       
+                    $json_encode = json_encode($getDetailProduct);
+    
+                    $getDetailProductbyColor = getDetailProductbyColor($id_sanPham);
+                    $getDetailProductbySize = getDetailProductbySize($id_sanPham);
+    
+                    // Lấy bình luận 
+                    $getComments = getComment($id_sanPham);
+                    // Lấy sản phẩm liên quan tới danh mục
+                    $getProductFolders =  getProductFolders($id_sanPham);
+                    include('./body.php');
 
             }
         break;

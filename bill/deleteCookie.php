@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+     <?php unset($_COOKIE['user']) ?>
     <script>
         document.cookie = `carts= ; expires=${new Date("1970-01-01 00:00:00").toUTCString()}`
         window.location.href = "../indexPage/index.php" 

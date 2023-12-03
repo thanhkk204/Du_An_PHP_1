@@ -26,7 +26,8 @@
         <div class="nav">
             <ul>
                 <li>
-                    Sản Phẩm
+                    
+                    <a href="../indexPage/index.php?act=searchItems" style="color: white;">Sản Phẩm</a>
                     <i class="fa-solid fa-caret-down"></i>
                     <div class="li_list hide">
                         <ul>
@@ -47,7 +48,8 @@
                     </div>
                 </li>
                 <li>
-                    Bộ Sưu Tập
+                    
+                    <a href="../indexPage/index.php?act=searchItems" style="color: white;">Bộ Sưu Tập</a>
                     <i class="fa-solid fa-caret-down "></i>
                     <div class="li_list hide">
                         <ul>
@@ -79,10 +81,23 @@
                 </li>
             </ul>
         </div>
+        <div style=" display: flex; gap: 15px; align-items: center;">
+
         <div class="bag" onclick="getCart()">
-            Giỏ Hàng
-            <i class="fa-solid fa-cart-shopping"></i>
+          Giỏ Hàng
+          <i class="fa-solid fa-cart-shopping"></i>
         </div>
+        <div class="searchItems" style="    font-weight: bold;
+         font-size: 22px;
+         color: white;
+         margin-top: 4px;">
+        <i class="fa-solid fa-magnifying-glass" ></i>
+
+        <form action="../indexPage/index.php?act=searchNameItems" method="POST">
+          <input type="text" name="nameItems">
+        </form>
+        </div>
+      </div>
         <!-- switch  -->
         <div class="SignIn_Switch">
        
@@ -123,33 +138,46 @@
             </div>
         </div>
     </div>
-    <!-- Form đăng kí -->
-    <div class="register">
-      <div class="register_form">
-        <form action="index.php?act=logIn" method="POST">
-          <label for="name_signIn">Email</label>
-          <input
-            type="text"
-            name="name_signIn"
-            id="name_signIn"
-            placeholder="Your Email..."
-          />
+     <!-- Form đăng kí -->
+    
+ <div class="register">
+  <div class="register_container">
 
-          <label for="pass_signIn">Mật Khẩu</label>
-          <input
-            type="password"
-            name="pass_signIn"
-            id="pass_signIn"
-            placeholder="Your Pass..."
-            
-          />
-          <div class="submitLogin">
-
-              <button type="submit" name="submitLogin">Log In</button>
-          </div>
-        </form>
-        <span>Quên Mật Khẩu?</span>
-        <span class="dang_Ki" onclick="goToRegister()">Đăng kí</span>
-      </div>
+    <div class="register_vector">
+      <img src="../img/Mobile-login.jpg" alt="">
     </div>
+        <div class="register_form">
+          <form action="index.php?act=logIn" method="POST">
+            <label for="name_signIn">Email</label>
+            <input
+              type="text"
+              name="name_signIn"
+              id="name_signIn"
+              placeholder="Your Email..."
+            />
+  
+            <label for="pass_signIn">Mật Khẩu</label>
+            <input
+              type="password"
+              name="pass_signIn"
+              id="pass_signIn"
+              placeholder="Your Pass..."
+              
+            />
+            <div class="submitLogin">
+              <button type="submit" name="submitLogin" >Log In</button>
+  
+            </div>
+          </form>
+          <div style="display: flex;gap: 6rem;">
+          <span>Quên Mật Khẩu?</span>
+          <span class="dang_Ki" onclick="goToRegisterFormDetail()">Đăng kí</span>
+          </div>
+            
+            
+        </div>
+    </div>
+  </div>
+
+    
  

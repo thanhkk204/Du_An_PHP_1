@@ -46,14 +46,20 @@
             <?php 
                     $carts = $_COOKIE['carts'];
                     if(isset($carts)){
-
-                   
+                        
                     $newCarts = json_decode($carts);
-                    
                     foreach ($newCarts as $key => $value2) {
                         $value = get_object_vars($value2);
                         
                         $total =  intval($value['quatity'])  * intval($value['price'] ) ;
+                        $formatted_total = number_format($total, 0, ',', '.');
+                        $formatted_price = number_format($value['price'], 0, ',', '.');
+                        $quatity = 0 ;
+                        if (intval($value['quatity']) > intval($value['total'])){
+                            $quatity = $value['total'] ;
+                        }else{
+                            $quatity = $value['quatity'] ;
+                        }
                        echo ' 
                        <div class="cart_section_product">
                        <div class="product_infor">
@@ -73,18 +79,19 @@
                             '.$value['size'].'
                        </div>
                        <div class="product_price">
-                       '.$value['price'].'
+                       '.$formatted_price.'
                        </div>
                        <div class="product_quatity">
                            <div class="show_product_right_buy_btn">
                            <button class="decline">-</button>
-                           <span class="prd_number">'.$value['quatity'].'</span>
+                           <span class="prd_number">'.$quatity.'</span>
                            <button class="increase">+</button>
                        </div>
                        </div>
                        <div class="product_total">
-                       '.$total.'
+                       '.$formatted_total.'
                        </div>
+                       <p class="getTotalQuality" style="display: none;">'.$value['total'].'</p>
                    </div>
                        ';
                     }
@@ -111,8 +118,13 @@
                 
                 <?php
                 if (isset($_SESSION['user'])) {
-
-                    echo '<button class="checkOut">Thanh Toán</button>';
+                    if (!empty($newCarts)) {
+                       
+                        echo '<button class="checkOut">Thanh Toán</button>';
+                    }else{
+                        echo '<button class="checkOut opacity_button">Thanh Toán</button>';
+                        echo '<p style="color: red;margin-top: 1rem ;">Bạn cần ít nhất 1 sản phẩm trong giỏ hàng</p>';
+                    }
                 }else{
                     echo '<button class="checkOut opacity_button">Thanh Toán</button>';
                     echo '<p style="color: red;margin-top: 1rem ;">Bạn cần đăng nhập để thanh toán</p>';

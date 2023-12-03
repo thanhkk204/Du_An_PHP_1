@@ -11,6 +11,9 @@ function getCart(){
 function goToRegister(){
     window.location.href = 'index.php?act=goToRegister'
 }
+function goToRegisterFormDetail(){
+    window.location.href = '../indexPage/index.php?act=goToRegister'
+}
 function goToHome(){
     window.location.href = 'index.php'
 }

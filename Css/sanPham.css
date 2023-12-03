@@ -190,35 +190,51 @@ body{
     transition: all 0.5s ease;
 }
 
-.register{
+.register {
     width: 100vw;
     height: 100vh;
     position: fixed;
     background-color: rgb(0, 0, 0, 0.4);
     z-index: 1000000000000;
-    top: 0;
     opacity: 0;
     pointer-events: none;
-}
-.register .register_form {
-    width: 700px;
-    height: 400px;
+    top: 0;
+  }
+  .register_container{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
     position: absolute;
-    left: 37%;
+    left: 20%;
     top: 20%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .register_vector{
+    width: 45%;
+    overflow: hidden;
+  }
+  .register_vector>img{
+    width: 100%;
+    object-fit: contain;
+  }
+  .register .register_form {
+    width: 45%;
     border-radius: 15px;
-    background: url("../img/BakcGround_register.png") center/contain no-repeat;
+    margin-left: 2rem;
   }
   .register .register_form > form {
-    width: 50%;
+    width: 56%;
     height: 50%;
-    margin: 4rem 0 0 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
   .register .register_form > form > input {
-    height: 4rem;
+    height: 3rem;
     outline: none;
     border: none;
     border-radius: 15px;
@@ -226,16 +242,15 @@ body{
     padding-left: 1rem;
     padding: 0.6rem 1rem;
     margin-top: 0.3rem;
+    border: 1px solid black;
+    width: 300px;
   }
   .register .register_form > form > label {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 1rem 0 0 0;
     font-weight: bold;
-    background-image: linear-gradient(to top, #e52d2d, #0da8e6);
-    display: inline-block;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: black;
+  
   }
   .submitLogin {
     width: 100%;
@@ -257,16 +272,15 @@ body{
     background-color: #e52d2d;
     color: white;
   }
-  .register_form > span {
+  .register_form >div> span {
     display: block;
-    margin-top: 1rem;
-    margin-left: 100px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
-  .register_form > span:hover {
+  .register_form >div> span:hover {
     color: #ff8711;
     cursor: progress;
   }
+  
 /* End header */
 /* detail sản phẩm */
 .show_product{
@@ -318,10 +332,6 @@ body{
 .show_product_right .show_product_right_cost{
     font-size: 3rem;
     font-weight: bold;
-    background-image: linear-gradient(to bottom , blue , pink);
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
     margin-bottom: 1rem;
 } 
 
@@ -688,8 +698,6 @@ body{
     color: red !important;
 }
 .product_large .product_name{
-    margin-top: 10px ;
-    margin-bottom: 10px;
     font-size: 24px;
 }
 .product_large .product_name:hover{
@@ -1080,5 +1088,38 @@ body{
     font-weight: 750;
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
+  }
+  /* Pop search items */
+.searchItems{
+    position: relative;
+  
+  }
+  .searchItems>form{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    bottom: -75px;
+    left: -75px;
+    width: 250px;
+    height: 67px;
+    background-color: rgb(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  
+  }
+  .searchItems>form>input{
+   width: 100%;
+   height: 40px;
+   font-size: 1.2rem;
+   padding: 0.5rem 0.9rem;
+   outline: none;
+  border: none;
+  border-radius: 10px;
   }
   

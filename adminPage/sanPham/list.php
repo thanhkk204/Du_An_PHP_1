@@ -18,7 +18,18 @@
       
         
 
-        
+      <?php if(isset($message) && $message != ''){
+       echo '<p style="color:red ">'.$message.'</p>';
+       }else{
+        echo '';
+       } ?> 
+
+       <?php if(isset($err) && $err != ''){
+       echo '<p style="color:red ">'.$err.'</p>';
+       }else{
+        echo '';
+       } ?> 
+
 <table  class="table_2">
           <tr>
             <th>Name</th>
@@ -49,7 +60,7 @@
            <td>'.$value['name'].'</td>
            <td>'.$price.'</td>
            <td>'.$show_img.'</td>
-           <td>'.$value['description'].'</td>
+           <td class="description">'.$value['description'].'</td>
            <td>'.$value['origin'].'</td>
            <td>'.$value['fabric'].'</td>
            <td>'.$value['brand'].'</td>
@@ -65,5 +76,6 @@
         </table>
 
 
-       
+      
+
 </div>

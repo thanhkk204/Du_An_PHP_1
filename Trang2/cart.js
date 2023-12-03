@@ -14,12 +14,12 @@ goToCart.addEventListener("click", () => {
       localStorage.setItem("cart", JSON.stringify(arr))
     } else {
       const checkExist = checkCart.find((item) => {
-        return item.color == product.color && item.size == product.size
+        return item.color == product.color && item.size == product.size && item.id_sanPham == product.id_sanPham
       })
 
       if (checkExist) {
         const newCart = checkCart.map((item) => {
-          if (item.color == product.color && item.size == product.size) {
+          if (item.color == product.color && item.size == product.size && item.id_sanPham == product.id_sanPham) {
             let getQuatity = parseInt(item.quatity)
             item.quatity = getQuatity + parseInt(product.quatity)
             return item

@@ -49,7 +49,8 @@
             </div>
           </li>
           <li>
-            Bộ Sưu Tập
+          <a href="index.php?act=searchItems" style="color: white;"> Bộ Sưu Tập</a>
+           
             <i class="fa-solid fa-caret-down"></i>
             <div class="li_list hide">
               <ul>
@@ -91,7 +92,6 @@
 
         <form action="index.php?act=searchNameItems" method="POST">
           <input type="text" name="nameItems">
-          <button type="submit">Tìm kiếm</button>
         </form>
         </div>
       </div>
@@ -139,33 +139,43 @@
     <!-- Form đăng kí -->
     
  <div class="register">
-      <div class="register_form">
-        <form action="index.php?act=logIn" method="POST">
-          <label for="name_signIn">Email</label>
-          <input
-            type="text"
-            name="name_signIn"
-            id="name_signIn"
-            placeholder="Your Email..."
-          />
+  <div class="register_container">
 
-          <label for="pass_signIn">Mật Khẩu</label>
-          <input
-            type="password"
-            name="pass_signIn"
-            id="pass_signIn"
-            placeholder="Your Pass..."
-            
-          />
-          <div class="submitLogin">
-            <button type="submit" name="submitLogin" >Log In</button>
-
-          </div>
-        </form>
-        <span>Quên Mật Khẩu?</span>
-        <span class="dang_Ki" onclick="goToRegister()">Đăng kí</span>
-      </div>
+    <div class="register_vector">
+      <img src="../img/Mobile-login.jpg" alt="">
     </div>
+        <div class="register_form">
+          <form action="index.php?act=logIn" method="POST">
+            <label for="name_signIn">Email</label>
+            <input
+              type="text"
+              name="name_signIn"
+              id="name_signIn"
+              placeholder="Your Email..."
+            />
+  
+            <label for="pass_signIn">Mật Khẩu</label>
+            <input
+              type="password"
+              name="pass_signIn"
+              id="pass_signIn"
+              placeholder="Your Pass..."
+              
+            />
+            <div class="submitLogin">
+              <button type="submit" name="submitLogin" >Log In</button>
+  
+            </div>
+          </form>
+          <div style="display: flex;gap: 6rem;">
+          <span>Quên Mật Khẩu?</span>
+          <span class="dang_Ki" onclick="goToRegister()">Đăng kí</span>
+          </div>
+            
+            
+        </div>
+    </div>
+  </div>
     <!-- banner 1 -->
     <div class="banner">
       <img src="../img/bannner 1.jpg" alt="">
