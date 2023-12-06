@@ -85,7 +85,25 @@
         return pdo_query($sql);
     }
     function getAllBillCanceled(){
-        $sql = "select don_hang.* , users.name as name from don_hang INNER jOIN users ON don_hang.id_user = users.id where don_hang.trang_thai !='dang_cho' and don_hang.trang_thai !='dang_giao' and don_hang.trang_thai !='da_giao' ";
+        $sql = "select don_hang.* , users.email as email from don_hang INNER jOIN users ON don_hang.id_user = users.id where don_hang.trang_thai !='dang_cho' and don_hang.trang_thai !='dang_giao' and don_hang.trang_thai !='da_giao' ";
+        return pdo_query($sql);
+    }
+    function layTatCaDon(){
+        // $sql = "select don_hang.* , users.email as email from users INNER JOIN don_hang ON don_hang.id_user = users.id
+        // INNER JOIN chi_tiet_don_hang.id_don_hang = don_hang.id
+        // ";
+        $sql = "
+        SELECT
+  don_hang.*,
+  users.email as email,
+  COUNT(*) AS so_luong_chi_tiet_don_hang
+FROM users INNER JOIN don_hang ON don_hang.id_user = users.id
+INNER JOIN chi_tiet_don_hang
+ON don_hang.id = chi_tiet_don_hang.id_don_hang 
+
+GROUP BY don_hang.id
+ORDER BY don_hang.timestamp DESC ;
+        ";
         return pdo_query($sql);
     }
     function danhSachSanPham($id){
@@ -145,20 +163,51 @@
         YEAR(timestamp) = YEAR(CURRENT_TIMESTAMP()) GROUP BY MONTH(timestamp) order by MONTH(timestamp) ";
         return pdo_query($sql);
     }
+    function getDoanhSoTheoNgay($start_date , $end_date){
+        $sql = "select DATE(timestamp) as date , SUM(total_money) AS doanhSo from chi_tiet_don_hang where trang_thai = 'da_giao' and
+        timestamp BETWEEN '$start_date' AND '$end_date' GROUP BY MONTH(timestamp) order by MONTH(timestamp) ";
+        return pdo_query($sql);
+    }
     function donHangGiao(){
         $sql = "select COUNT(*) as quantity from don_hang where trang_thai = 'da_giao' ";
+        return pdo_query_one($sql);
+    }
+    function donHangGiaoTheoNgay($start_date , $end_date){
+        $sql = "select COUNT(*) as quantity from don_hang where trang_thai = 'da_giao' and
+        timestamp BETWEEN '$start_date' AND '$end_date' ";
         return pdo_query_one($sql);
     }
     function donHangHuy(){
         $sql = "select COUNT(*) as quantity from don_hang where trang_thai = 'huy_don_hang_admin' OR  trang_thai = 'huy_don_hang_user' ";
         return pdo_query_one($sql);
     }
+    function donHangHuyTheoNgay($start_date , $end_date){
+        $sql = "select COUNT(*) as quantity from don_hang where trang_thai = 'huy_don_hang_admin' OR  trang_thai = 'huy_don_hang_user' and
+        timestamp BETWEEN '$start_date' AND '$end_date'";
+        return pdo_query_one($sql);
+    }
     function binhLuan(){
         $sql = "select COUNT(*) as quantity from comments";
+        return pdo_query_one($sql);
+    }
+    function binhLuanTheoNgay($start_date , $end_date){
+        $sql = "select COUNT(*) as quantity from comments where
+        timestamp BETWEEN '$start_date' AND '$end_date'";
         return pdo_query_one($sql);
     }
     function doanhSo(){
         $sql = "select SUM(total_money) as quantity from chi_tiet_don_hang where trang_thai ='da_giao' ";
         return pdo_query_one($sql);
     }
+    function doanhSoTheoNgay($start_date , $end_date){
+        $sql = "select SUM(total_money) as quantity from chi_tiet_don_hang where trang_thai ='da_giao' and
+        timestamp BETWEEN '$start_date' AND '$end_date'";
+        return pdo_query_one($sql);
+    }
+
+    function top5SanPhamBanChay(){
+        $sql = "select san_pham.* , SUM(quatity) AS quantity_sold , danh_muc.name as namDanhMuc FROM chi_tiet_don_hang INNER JOIN san_pham ON chi_tiet_don_hang.id_CTSP = san_pham.id INNER JOIN danh_muc ON danh_muc.id = san_pham.id_danhMuc where chi_tiet_don_hang.trang_thai = 'da_giao' GROUP BY id_CTSP ORDER BY quantity_sold DESC LIMIT 5;";
+        return pdo_query($sql);
+    }
+    
 ?>

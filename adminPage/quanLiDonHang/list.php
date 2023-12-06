@@ -4,6 +4,7 @@
         <ul>
         <li><a href="index.php?act=hienThiDonHang">Xác Nhận Đơn</a></li>
         <li><a href="index.php?act=hienThiDonHangDaHuy">Danh sách Đã Hủy</a></li>
+        <li><a href="index.php?act=tatCaDonHang">Tất cả đơn hàng</a></li>
         </ul>
   </nav>
   
@@ -19,6 +20,7 @@
         <table class="table table-bordered table-hover table_donHang">
         <thead>
         <tr>
+        <th>ID</th>
           <th >Ảnh</th>
           <th>Tên</th>
           <th>Số lượng</th>
@@ -34,6 +36,7 @@
         $formatted_total = number_format($total_money, 0, ',', '.');
         echo '
         <tr>
+        <td>'.$id_donHang.'</td>
         <td><img src="../upload/'.$img.'" alt="" width="100"></td>
         <td>'.$name.'</td>
         <td>'.$quatity.'</td>

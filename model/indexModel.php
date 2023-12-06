@@ -26,7 +26,7 @@
             return pdo_query_one($sql);
     }
     function xemDonHang($id_user){
-       $get_doHang = "select * from don_hang where id_user = '$id_user' and don_hang.trang_thai != 'huy_don_hang_user' and don_hang.trang_thai != 'huy_don_hang_admin'" ;
+       $get_doHang = "select * from don_hang where id_user = '$id_user' and don_hang.trang_thai != 'huy_don_hang_user' and don_hang.trang_thai != 'huy_don_hang_admin' ORDER BY timestamp DESC" ;
             return pdo_query($get_doHang);
     }
     function chiTietDonHang($id_donHang){

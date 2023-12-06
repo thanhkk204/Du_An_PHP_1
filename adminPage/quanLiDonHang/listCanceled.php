@@ -4,6 +4,7 @@
           <ul>
           <li><a href="index.php?act=hienThiDonHang">Xác Nhận Đơn</a></li>
           <li><a href="index.php?act=hienThiDonHangDaHuy">Danh sách Đã Hủy</a></li>
+          <li><a href="index.php?act=tatCaDonHang">Tất cả đơn hàng</a></li>
           </ul>
     </nav>
     
@@ -11,14 +12,16 @@
         foreach ($getAllBillCanceled as $key => $value) {
           $id_donHang = $value['id'];
           $trang_thai_don_hang = $value['trang_thai'];
+          $email = $value['email'];
           $getListCanceled = getListCanceled($id_donHang);
           echo '<div style="background-color: #f5f5f5;
           box-shadow: 0 2px 8px #0da8e6;margin-bottom: 3rem;padding: 1.5rem 0; border-radius: 10px ;overflow: hidden;">';
           echo '<table class="table table-bordered table-hover table_donHang">
           <thead>
             <tr>
-              <th >Ảnh</th>
-              <th>Tên</th>
+             <th>ID</th>
+              <th>Ảnh</th>
+              <th>Email người dùng</th>
               <th>Số lượng</th>
               <th>Màu</th>
               <th>Size</th>
@@ -36,8 +39,9 @@
             
               echo '
               <tr>
+              <td>'.$id_donHang.'</td>
               <td><img src="../upload/'.$img.'" alt="" width="100"></td>
-              <td>'.$name.'</td>
+              <td>'.$email.'</td>
               <td>'.$quatity.'</td>
               <td>'.$color.'</td>
               <td>'.$size.'</td>
@@ -50,8 +54,9 @@
             }else{
               echo '
               <tr>
+              <td>'.$id_donHang.'</td>
               <td><img src="../upload/'.$img.'" alt="" width="100"></td>
-              <td>'.$name.'</td>
+              <td>'.$email.'</td>
               <td>'.$quatity.'</td>
               <td>'.$color.'</td>
               <td>'.$size.'</td>

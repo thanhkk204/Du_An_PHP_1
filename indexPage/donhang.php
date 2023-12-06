@@ -12,6 +12,7 @@
           $danhSachDonHang = getChi_tiet_don_($value['id']);
           $id_donHang = $value['id'];
           $trang_thai_don_hang = $value['trang_thai'];
+          $timestamp = $value['timestamp'];
           if (empty($danhSachDonHang)) {
             xoaDonHangAll($value['id']);
           }else{
@@ -27,7 +28,7 @@
               <th>Màu</th>
               <th>Tổng tiền</th>
               <th>Trạng thái</th>
-              <th>Chức năng</th>
+              <th>Thời gian đặt</th>
             </tr>
           </thead>
           <tbody>';
@@ -47,7 +48,7 @@
               <td>'.$formatted_total.'</td>
               <td>Đang giao</td>
               <td>
-                <button class="btn btn-primary" style="opacity: 0.4; pointer-events: none;" onclick="huyDonHangClient('.$id.')">Loại</button>
+                '.$value['timestamp'].'
               </td>
             </tr>
               ';
@@ -61,9 +62,9 @@
               <td>'.$quatity.'</td>
               <td>'.$color.'</td>
               <td>'.$formatted_total.'</td>
-              <td>Đang chờ xác nhận</td>
+              <td>Đang chờ xuất kho</td>
               <td>
-                <button class="btn btn-primary" onclick="huyDonHangClient('.$id.')">Loại</button>
+              '.$value['timestamp'].'
               </td>
             </tr>
               ';
@@ -77,7 +78,7 @@
               <td>'.$formatted_total.'</td>
               <td>Đã giao</td>
               <td>
-                <button class="btn btn-primary" style="opacity: 0.4; pointer-events: none;" onclick="huyDonHangClient('.$id.')">Loại</button>
+              '.$value['timestamp'].'
               </td>
             </tr>
               ';

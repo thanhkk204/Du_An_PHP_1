@@ -2,7 +2,7 @@
 session_start();
 include('../model/pdo.php');
 include('../model/adminModule.php');
-
+include('../model/indexModel.php');
 include('./header.php');
 if(isset($_GET['act'])){
     $act = $_GET['act'];
@@ -206,6 +206,11 @@ if(isset($_GET['act'])){
                 $getAllBillCanceled = getAllBillCanceled();
                 include('./quanLiDonHang/listCanceled.php');
                 break;
+             // Tất cả đơn hàng
+             case 'tatCaDonHang':
+                $layTatCaDon = layTatCaDon();
+                include('./quanLiDonHang/tatCaDon.php');
+                break;
 
              case 'donHangDangGiao':
                 $getBillDrivering = getBillDrivering();
@@ -267,6 +272,12 @@ if(isset($_GET['act'])){
                 $getUsers = getUsers($id);
                 include('./quanLiNguoiDung/list.php');
                 break;
+                // Top 5 sản phẩm bán chạy
+             case 'top5SanPhamBanChay':
+                
+               $top5SanPhamBanChay =  top5SanPhamBanChay();
+                include('./thongKe/top5SP.php');
+                break;
                 // Lấy thống kê
              case 'getThongKe':
                 $donHangGiao = donHangGiao();
@@ -278,6 +289,29 @@ if(isset($_GET['act'])){
                  $json_encode = json_encode($getDoanhSo);
                 include('./thongKe/thongKe.php');
                 break;
+                // Lấy thống kê theo ngày
+             case 'thongKeTheoNgay':
+                $start_date = $_POST['start_date'];
+                $end_date = $_POST['end_date'];
+
+                $donHangGiao = donHangGiaoTheoNgay($start_date , $end_date);
+                $donHangHuy = donHangHuyTheoNgay($start_date , $end_date);
+                $binhLuan = binhLuanTheoNgay($start_date , $end_date);
+                $doanhSo = doanhSoTheoNgay($start_date , $end_date);
+
+                $getDoanhSo = getDoanhSoTheoNgay($start_date , $end_date);
+                $json_encode = json_encode($getDoanhSo);
+
+                include('./thongKe/thongKe.php');
+                break;
+                // Xem chi tiết đơn hàng
+          case 'xemChiTietDonHang':
+            $id_user = $_SESSION['user']['id'];
+            $id_donHang = $_GET['id'];
+            $chiTietDonHang = chiTietDonHang($id_donHang);
+            $donHang = donHang($id_donHang);
+            include('./quanLiDonHang/chiTietDonHang.php');
+        break;
         // Mặc định
         default:
         include('./body.php');

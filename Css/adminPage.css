@@ -434,3 +434,139 @@
   font-weight: 800;
   border-radius: 10px;
 }
+/* Chi tiết đơn hàng */
+.chiTietDonHang_container{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 10rem;
+
+  background-color: #f5f5f5;
+  box-shadow: -3px 8px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+.chiTietDonHang_header{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  border-bottom: 1px solid grey;
+}
+.chiTietDonHang_header>div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.trangThaiDonHang{
+  font-size: 1.4rem;
+  color: #e52d2d;
+  font-weight: bold;
+}
+.chiTietDonHang_body{
+  width: 100%;
+}
+.sanPhamChiTiet{
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+  overflow: hidden;
+  border-radius: 10px;
+  align-items: center;
+  margin: 1rem 0;
+}
+.sanPhamChiTiet_1{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+.sanPhamChiTiet_1>div{
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+}
+.sanPhamChiTiet_1 .DonHangImg{
+  width: 100px;
+  overflow: hidden;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+.sanPhamChiTiet_1 .DonHangImg>img{
+  width: 100%;
+  object-fit: contain;
+}
+
+.sanPhamChiTiet_2{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+}
+.sanPhamChiTiet_3{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+}
+.sanPhamChiTiet_4{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 20px;
+  
+  margin-right: 10px;
+}
+
+.chiTietDonHang_footer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+.chiTietDonHang_footer .right{
+  flex: 1;
+  width: 100%;
+  min-height: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.chiTietDonHang_footer .left{
+  flex: 1.2;
+  width: 100%;
+  min-height: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-left: 1px solid grey;
+  padding-left: 2rem;
+}
+
+.right_price{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
+  padding-bottom: 10px;
+}

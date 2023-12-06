@@ -88,6 +88,9 @@
               window.location.href = "index.php?act=xoaNguoiDung&id="+id
             }
           }
+          function xemChiTietDonHang(id){
+            window.location.href = "index.php?act=xemChiTietDonHang&id="+id
+          }
           
 </script>
 </html>

@@ -1,6 +1,6 @@
 <div class="chiTietDonHang_container">
-   <div class="chiTietDonHang_header">
-    <a href="index.php?act=xemDonHang">
+   <div  class="chiTietDonHang_header">
+    <a style="color: black; text-decoration: none;" href="index.php?act=tatCaDonHang">
     <i class="fa-solid fa-chevron-left"></i>
         Trở về
     </a>

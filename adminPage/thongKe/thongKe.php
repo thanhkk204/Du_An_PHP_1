@@ -1,6 +1,28 @@
 
 <div class="admin_right-bottom" >
 
+<nav class="narbar_danhMuc">
+      <ul>
+      <li><a href="index.php?act=getThongKe">Thống kê</a></li>
+      <li> <a href="index.php?act=top5SanPhamBanChay">Top 5 sản phẩm bán chạy</a></li>
+      </ul>
+      </nav>
+
+<form action="index.php?act=thongKeTheoNgay" method="post" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+    <div>
+        <label for="start_date">Từ ngày: </label>
+        <input type="date" name="start_date" id="start_date" style="border-radius: 10px;">
+    </div>
+    <div>
+        <label for="end_date">Đến: </label>
+        <input type="date" name="end_date" id="end_date" style="border-radius: 10px;">
+    </div>
+  <input type="submit" value="Tìm kiếm" class="btn btn-primary" style="    max-width: 8rem;
+    line-height: 8px;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: bold;">
+</form>  
     <?php
     echo '<h1 id="getDatabase" style="display: none;">
     '.$json_encode.'
